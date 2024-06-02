@@ -1,0 +1,152 @@
+[
+    {
+        "_id": "1",
+        "title": "Thermostat Feedback",
+        "description": "How satisfied are you with our smart thermostat?",
+        "vote_number": 150,
+        "category": "Thermostat",
+        "deadline": "2024-07-01",
+        "status": "publish",
+        "timestamp": "2024-05-20T12:00:00Z"
+    },
+    {
+        "_id": "2",
+        "title": "Light Bulb Survey",
+        "description": "Share your experience with our smart light bulbs.",
+        "vote_number": 95,
+        "category": "Lighting",
+        "deadline": "2024-06-15",
+        "status": "publish",
+        "timestamp": "2024-05-21T09:30:00Z"
+    },
+    {
+        "_id": "3",
+        "title": "Doorbell Usability",
+        "description": "Your thoughts on the usability of our smart doorbells.",
+        "vote_number": 120,
+        "category": "Doorbell",
+        "deadline": "2024-06-30",
+        "status": "publish",
+        "timestamp": "2024-05-22T14:00:00Z"
+    },
+    {
+        "_id": "4",
+        "title": "Security Camera Performance",
+        "description": "Rate the performance of our smart security cameras.",
+        "vote_number": 110,
+        "category": "Security",
+        "deadline": "2024-06-25",
+        "status": "unpublish",
+        "timestamp": "2024-05-23T16:00:00Z"
+    },
+    {
+        "_id": "5",
+        "title": "Plug Efficiency",
+        "description": "How do you find the efficiency of our smart plugs?",
+        "vote_number": 140,
+        "category": "Plug",
+        "deadline": "2024-07-10",
+        "status": "publish",
+        "timestamp": "2024-05-24T18:30:00Z"
+    },
+    {
+        "_id": "6",
+        "title": "Smoke Detector",
+        "description": "How satisfied are you with our smart smoke detectors?",
+        "vote_number": 85,
+        "category": "Detector",
+        "deadline": "2024-06-20",
+        "status": "publish",
+        "timestamp": "2024-05-25T10:00:00Z"
+    },
+    {
+        "_id": "7",
+        "title": "Speaker Quality",
+        "description": "Rate your experience with our smart speakers.",
+        "vote_number": 105,
+        "category": "Speaker",
+        "deadline": "2024-07-05",
+        "status": "publish",
+        "timestamp": "2024-05-26T13:15:00Z"
+    },
+    {
+        "_id": "8",
+        "title": "Vacuum Usability",
+        "description": "How user-friendly is our smart vacuum cleaner?",
+        "vote_number": 95,
+        "category": "Vacuum",
+        "deadline": "2024-06-22",
+        "status": "publish",
+        "timestamp": "2024-05-27T11:45:00Z"
+    },
+    {
+        "_id": "9",
+        "title": "Refrigerator Features",
+        "description": "Share your experience with the features of our smart refrigerator.",
+        "vote_number": 105,
+        "category": "Refrigerator",
+        "deadline": "2024-07-08",
+        "status": "publish",
+        "timestamp": "2024-05-29T14:20:00Z"
+    },
+    {
+        "_id": "10",
+        "title": "Washer and Dryer",
+        "description": "Which features do you use most in our smart washer and dryer?",
+        "vote_number": 85,
+        "category": "Washer",
+        "deadline": "2024-06-28",
+        "status": "publish",
+        "timestamp": "2024-05-30T10:00:00Z"
+    },
+    {
+        "_id": "11",
+        "title": "Air Purifier Feedback",
+        "description": "Share your experience with our smart air purifiers.",
+        "vote_number": 110,
+        "category": "Purifier",
+        "deadline": "2024-06-27",
+        "status": "unpublish",
+        "timestamp": "2024-05-31T09:00:00Z"
+    },
+    {
+        "_id": "12",
+        "title": "Coffee Maker Usability",
+        "description": "Rate the usability of our smart coffee maker.",
+        "vote_number": 130,
+        "category": "CoffeeMaker",
+        "deadline": "2024-07-04",
+        "status": "publish",
+        "timestamp": "2024-06-01T14:00:00Z"
+    },
+    {
+        "_id": "13",
+        "title": "Oven Performance",
+        "description": "How efficient is our smart oven?",
+        "vote_number": 70,
+        "category": "Oven",
+        "deadline": "2024-06-29",
+        "status": "publish",
+        "timestamp": "2024-06-02T11:00:00Z"
+    },
+    {
+        "_id": "14",
+        "title": "Water Heater",
+        "description": "Rate the performance of our smart water heaters.",
+        "vote_number": 150,
+        "category": "Heater",
+        "deadline": "2024-06-21",
+        "status": "publish",
+        "timestamp": "2024-06-03T13:00:00Z"
+    },
+    {
+        "_id": "15",
+        "title": "Home Hub Feedback",
+        "description": "How satisfied are you with our smart home hubs?",
+        "vote_number": 120,
+        "category": "Hub",
+        "deadline": "2024-07-18",
+        "status": "publish",
+        "timestamp": "2024-06-03T13:00:00Z"
+    }
+]
