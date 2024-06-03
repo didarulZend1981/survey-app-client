@@ -1,14 +1,15 @@
 import { useLocation, useNavigate } from "react-router-dom";
 
 import toast from "react-hot-toast";
-import useAuthHook from "../../hooks/useAuthHook";
+// import useAuthHook from "../../hooks/useAuthHook";
+import useAuth from "../../../hooks/useAuth";
 
 
 
 const SocialLogin = () => {
 
 
-  const {googleLogin,FacebookLogin,setLoading} =useAuthHook();
+  const {googleLogin,FacebookLogin,setLoading} =useAuth();
 
   const navigate = useNavigate();
   // const location = useLocation();

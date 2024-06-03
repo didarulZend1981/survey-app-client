@@ -1,18 +1,19 @@
 
-import { useContext } from "react";
+
 
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
-import { AuthContext } from "../../../providers/AuthProvider";
+
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { MdAppRegistration } from "react-icons/md";
 import { imageUpload } from "../../../api/utils";
+import useAuth from "../../../hooks/useAuth";
 
 
 const SignUp = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
-  const { createUser, updateUserProfile,setLoading } = useContext(AuthContext);
+  const { createUser, updateUserProfile,setLoading } = useAuth();
   const navigate = useNavigate();
 
 //   const onSubmit = data => {
@@ -58,6 +59,7 @@ const onSubmit = async data => {
 
       // 3. Save username and photo in firebase
       await updateUserProfile(data.name, image_url)
+      reset();
       Swal.fire({
                                   position: 'top-end',
                                   icon: 'success',

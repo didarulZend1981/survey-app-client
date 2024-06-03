@@ -2,14 +2,15 @@ import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import { FacebookAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 export const AuthContext = createContext(null);
-
+import axios from 'axios'
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-
+    const axiosPublic = useAxiosPublic();
 
      //  social provider
      const googleProvider = new GoogleAuthProvider();
@@ -47,9 +48,36 @@ const AuthProvider = ({ children }) => {
         });
     }
 
+
+     // save user
+  const saveUser = async user => {
+    console.log("authPro Save----",user)
+    const currentUser = {
+      email: user?.email,
+      no: user?.displayName,
+      role: 'user',
+      status: 'Verified',
+    }
+    console.log("currentUser---",currentUser)
+    const { data } = await axiosPublic.put(
+        `/user`,
+        currentUser
+    )
+   
+
+  
+    console.log("data base gooo---",data);
+    return data
+  }
+
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
+             if (currentUser) {
+               
+                saveUser(currentUser)
+              }
             console.log('current user', currentUser);
             setLoading(false);
         });
