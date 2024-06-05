@@ -11,6 +11,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const axiosPublic = useAxiosPublic();
+    
 
      //  social provider
      const googleProvider = new GoogleAuthProvider();
@@ -49,42 +50,79 @@ const AuthProvider = ({ children }) => {
     }
 
 
-     // save user
-  const saveUser = async user => {
-    console.log("authPro Save----",user)
-    const currentUser = {
-      email: user?.email,
-      no: user?.displayName,
-      role: 'user',
-      status: 'Verified',
-    }
-    console.log("currentUser---",currentUser)
-    const { data } = await axiosPublic.put(
-        `/user`,
-        currentUser
-    )
+//      // save user
+//   const saveUser = async user => {
+//     // console.log("authPro Save----",user)
+//     const currentUser = {
+//       email: user?.email,
+//       name: user?.displayName,
+//       role: 'user',
+//       status: 'Verified',
+//     }
+//     // console.log("currentUser---",currentUser)
+//     const { data } = await axiosPublic.put(
+//         `/user`,
+//         currentUser
+//     )
    
 
   
-    console.log("data base gooo---",data);
-    return data
-  }
+//     // console.log("data base gooo---",data);
+//     return data
+//   }
 
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
              if (currentUser) {
+                
+                // get token and store client
+                const userInfo = { email: currentUser.email };
+                axiosPublic.post('/jwt', userInfo)
+                    .then(res => {
+                        if (res.data.token) {
+                            localStorage.setItem('access-token', res.data.token);
+                        }
+                    })
+
+
+                    // saveUser(currentUser)
                
-                saveUser(currentUser)
+                
+
+              }else{
+                // TODO: remove token (if token stored in the client side: Local storage, caching, in memory)
+                localStorage.removeItem('access-token');
               }
             console.log('current user', currentUser);
             setLoading(false);
+
+
+
+
+            if (currentUser) {
+                // get token and store client
+                const userInfo = { email: currentUser.email };
+                axiosPublic.post('/jwt', userInfo)
+                    .then(res => {
+                        if (res.data.token) {
+                            localStorage.setItem('access-token', res.data.token);
+                        }
+                    })
+            }
+            else {
+                // TODO: remove token (if token stored in the client side: Local storage, caching, in memory)
+                localStorage.removeItem('access-token');
+            }
+            setLoading(false);
+
+
         });
         return () => {
             return unsubscribe();
         }
-    }, [])
+    }, [axiosPublic])
 
     const authInfo = {
         user,

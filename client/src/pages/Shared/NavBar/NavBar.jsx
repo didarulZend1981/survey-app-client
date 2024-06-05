@@ -5,7 +5,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
-  
+  console.log("never-----check",user);
   const handleLogOut = () => {
     logOut()
         .then(() => { })
@@ -44,6 +44,7 @@ const NavBar = () => {
   {
             user ? <>
                 <span>{user?.displayName}</span>
+                <span><img src={user?.photoURL}></img></span>
                 <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
             </> : <>
             <a className="btn"><Link to="/login">Login</Link></a>

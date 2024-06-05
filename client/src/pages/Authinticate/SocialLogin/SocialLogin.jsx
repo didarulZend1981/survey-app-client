@@ -9,7 +9,7 @@ import useAuth from "../../../hooks/useAuth";
 const SocialLogin = () => {
 
 
-  const {googleLogin,FacebookLogin,setLoading} =useAuth();
+  const {googleLogin,setLoading} =useAuth();
 
   const navigate = useNavigate();
   // const location = useLocation();

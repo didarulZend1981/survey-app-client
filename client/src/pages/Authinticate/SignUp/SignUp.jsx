@@ -9,81 +9,104 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import { MdAppRegistration } from "react-icons/md";
 import { imageUpload } from "../../../api/utils";
 import useAuth from "../../../hooks/useAuth";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 
 const SignUp = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const { createUser, updateUserProfile,setLoading } = useAuth();
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
 
-//   const onSubmit = data => {
-//       console.log("didar check",data);
-//       createUser(data.email, data.password)
-//           .then(result => {
-//               const loggedUser = result.user;
-//               console.log(loggedUser);
-//               updateUserProfile(data.name, data.photoURL)
-//                   .then(() => {
-//                       console.log('user profile info updated')
-//                       reset();
-//                       Swal.fire({
-//                           position: 'top-end',
-//                           icon: 'success',
-//                           title: 'User created successfully.',
-//                           showConfirmButton: false,
-//                           timer: 1500
-//                       });
-//                       navigate('/');
+  const onSubmit = data => {
+    
 
-//                   })
-//                   .catch(error => console.log(error))
-//           })
-//   };
+
+      console.log("didar check",data);
+      createUser(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        // create user entry in the database
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email,
+                            role: 'user',
+                            status: 'Verified',
+                        }
+                        axiosPublic.post('/user', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log('user added to the database')
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User created successfully.',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
+
+
+                    })
+                    .catch(error => console.log(error))
+            })
+  };
  
 
-const onSubmit = async data => {
-   console.log("onSubmit------",data)
+
+
+
+// const onSubmit = async data => {
+//    console.log("onSubmit------",data)
 
   
 
-    try {
+//     try {
 
         
-        setLoading(true)
-      // 1. Upload image and get image url
-      const image_url = await imageUpload(data.photoURL)
-      console.log(image_url)
-      //2. User Registration
-      const result = await createUser(data.email, data.password)
-      console.log(result)
+//         setLoading(true)
+//       // 1. Upload image and get image url
+//       const image_url = await imageUpload(data.photoURL)
+//       console.log(image_url)
+//       //2. User Registration
+//       const result = await createUser(data.email, data.password)
+//       console.log(result)
 
-      // 3. Save username and photo in firebase
-      await updateUserProfile(data.name, image_url)
-      reset();
-      Swal.fire({
-                                  position: 'top-end',
-                                  icon: 'success',
-                                  title: 'User created successfully.',
-                                  showConfirmButton: false,
-                                  timer: 1500
-                              });
+//       // 3. Save username and photo in firebase
+//       await updateUserProfile(data.name, image_url)
+//       reset();
+
+
+//       Swal.fire({
+//                                   position: 'top-end',
+//                                   icon: 'success',
+//                                   title: 'User created successfully.',
+//                                   showConfirmButton: false,
+//                                   timer: 1500
+//                               });
                            
-      navigate('/')
-    //   toast.success('Signup Successful')
-    } catch (err) {
-      console.log(err)
-      //toast.error(err.message)
+//       navigate('/')
+//     //   toast.success('Signup Successful')
+//     } catch (err) {
+//       console.log(err)
+//       //toast.error(err.message)
 
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'User note  success.',
-        showConfirmButton: false,
-        timer: 1500
-    });
+//       Swal.fire({
+//         position: 'top-end',
+//         icon: 'success',
+//         title: 'User note  success.',
+//         showConfirmButton: false,
+//         timer: 1500
+//     });
  
-    }
-  }
+//     }
+//   }
 
 
 return (
