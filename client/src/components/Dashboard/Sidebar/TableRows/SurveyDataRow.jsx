@@ -22,7 +22,12 @@ const SurveyDataRow = ({survey,refetch,serialNumber}) => {
                                         </Link>
                 
                 
-                || View</td>
+                || <Link to={`/dashboard/surveyor/surveys/${_id}`}>
+                                            <button
+                                                className="btn btn-ghost btn-lg bg-orange-500">
+                                                View
+                                            </button>
+                                        </Link></td>
        </tr>
     
   );

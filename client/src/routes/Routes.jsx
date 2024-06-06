@@ -10,6 +10,9 @@ import AllUsers from "../pages/Dashboard/Admin/AllUsers/AllUsers";
 import Create from "../pages/Dashboard/Surveyor/Create/Create";
 import Surveys from "../pages/Dashboard/Surveyor/Surveys/Surveys";
 import Update from "../pages/Dashboard/Surveyor/Update/Update";
+import SingleSurvey from "../pages/Dashboard/Surveyor/SingleSurvey/SingleSurvey";
+import AllSurveys from "../pages/Dashboard/Admin/AllSurveys/AllSurveys";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
 
   const router = createBrowserRouter([
@@ -45,8 +48,13 @@ import Update from "../pages/Dashboard/Surveyor/Update/Update";
         },
         // admin routes
         {
-          path: 'users',
+          path: 'admin/users',
           element: <AllUsers></AllUsers>
+        },
+
+        {
+          path: 'admin/surveys',
+          element: <AllSurveys></AllSurveys>
         },
         // survey routes
         {
@@ -56,13 +64,21 @@ import Update from "../pages/Dashboard/Surveyor/Update/Update";
         {
           path: 'surveyor/surveys',
           element: <Surveys></Surveys>
-        }
-        ,
+        },
         {
           path: 'surveyor/update/:id',
           element: <Update></Update>,
           loader: ({params}) => fetch(`http://localhost:5000/surveyor/${params.id}`)
-        }
+        },
+        {
+          path: 'surveyor/surveys/:id',
+          element: <SingleSurvey></SingleSurvey>,
+          loader: ({params}) => fetch(`http://localhost:5000/surveyor/${params.id}`)
+        },
+        {
+          path: 'payment',
+          element: <Payment></Payment>
+        },
       ]
     }
   ]);

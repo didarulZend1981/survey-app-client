@@ -17,6 +17,7 @@ const NavBar = () => {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/surveys">Surveys</Link></li>
           <li><Link to="/dashboard/adminHome">ADMIN</Link></li>
+          <li><Link to="/dashboard/payment">PRO-USER</Link></li>
           <li><Link to="/login">Login</Link></li>
           <li><Link to="/signup">SignUp</Link></li>
           </>
@@ -46,7 +47,9 @@ const NavBar = () => {
                 <span>{user?.displayName}</span>
                 <span><img src={user?.photoURL}></img></span>
                 <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
-            </> : <>
+            </> : 
+            
+            <>
             <a className="btn"><Link to="/login">Login</Link></a>
             </>
         }

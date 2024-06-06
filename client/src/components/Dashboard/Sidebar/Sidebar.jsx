@@ -29,8 +29,9 @@ const Sidebar = () => {
       <li><a>QUESTION UPDATE</a></li>
 
      
-      <li><Link to="/dashboard/users">Manage users</Link></li>
-      <li><a>surveys Status</a></li>
+      <li><Link to="/dashboard/admin/users">Manage users</Link></li>
+      <li><Link to="/dashboard/admin/surveys">Manage surveys Status</Link></li>
+      
       <li><a>View all payments and survey responses</a></li>
 
       <li><a>Participate in surveys</a></li>
