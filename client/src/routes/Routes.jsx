@@ -78,7 +78,7 @@ import Payment from "../pages/Dashboard/Payment/Payment";
         {
           path: 'payment',
           element: <Payment></Payment>
-        },
+        }
       ]
     }
   ]);
