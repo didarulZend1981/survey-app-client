@@ -2,7 +2,8 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
-
+import Swal from "sweetalert2";
+import { Navigate } from "react-router-dom";
 
 
 const CheckoutForm = () => {
@@ -93,11 +94,11 @@ const CheckoutForm = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: "Thank you for the taka paisa",
+                    title: "Thank you",
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate('/dashboard/paymentHistory')
+                Navigate('/dashboard/user/paymentHistory')
             }
 
         }

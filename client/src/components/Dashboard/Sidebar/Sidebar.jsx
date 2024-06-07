@@ -33,7 +33,7 @@ const Sidebar = () => {
       <li><Link to="/dashboard/admin/surveys">Manage surveys Status</Link></li>
       
       <li><a>View all payments and survey responses</a></li>
-
+      <li><Link to="/dashboard/user/paymentHistory">Payment</Link></li>
       <li><a>Participate in surveys</a></li>
       <li><a>Reported surveys.</a></li>
       <li><a>Commented on surveys.</a></li>

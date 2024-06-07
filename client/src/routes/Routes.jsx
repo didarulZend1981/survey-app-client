@@ -13,6 +13,7 @@ import Update from "../pages/Dashboard/Surveyor/Update/Update";
 import SingleSurvey from "../pages/Dashboard/Surveyor/SingleSurvey/SingleSurvey";
 import AllSurveys from "../pages/Dashboard/Admin/AllSurveys/AllSurveys";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../pages/Dashboard/User/PaymentHistory/PaymentHistory";
 
 
   const router = createBrowserRouter([
@@ -78,7 +79,12 @@ import Payment from "../pages/Dashboard/Payment/Payment";
         {
           path: 'payment',
           element: <Payment></Payment>
-        }
+        },
+        
+        {
+          path: 'user/paymentHistory',
+          element: <PaymentHistory></PaymentHistory>
+        },
       ]
     }
   ]);

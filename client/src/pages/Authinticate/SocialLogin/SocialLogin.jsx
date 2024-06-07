@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 // import useAuthHook from "../../hooks/useAuthHook";
 import useAuth from "../../../hooks/useAuth";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 
 
@@ -10,6 +11,8 @@ const SocialLogin = () => {
 
 
   const {googleLogin,setLoading} =useAuth();
+  const axiosPublic = useAxiosPublic();
+    
 
   const navigate = useNavigate();
   // const location = useLocation();
@@ -18,23 +21,45 @@ const SocialLogin = () => {
   // const from = location.state?.from?.pathname || "/";
  
 
- const handleGoogleSignIn = async () => {
-  try {
-    await googleLogin()
+//  const handleGoogleSignIn = async () => {
+//   try {
+//     await googleLogin()
 
-    navigate('/')
-    toast.success('Signup Successful')
-  } catch (err) {
-    console.log(err)
-    toast.error(err.message)
-  }
-}
+//     navigate('/')
+//     toast.success('Signup Successful')
+//   } catch (err) {
+//     console.log(err)
+//     toast.error(err.message)
+//   }
+// }
+
+
+ const handleGoogleSignIn = () =>{
+        googleLogin()
+        .then(result =>{
+            console.log(result.user);
+            const userInfo = {
+                name: result.user?.displayName,
+                email: result.user?.email,
+                
+                role: 'user',
+                status: 'Verified',
+            }
+            axiosPublic.post('/user', userInfo)
+            .then(res =>{
+                console.log(res.data);
+                navigate('/');
+            })
+        })
+    }
 
   return (
     <div className="w-4/5 mx-auto mb-4">
      
 
-       <button onClick={()=>handleGoogleSignIn()} className="btn btn-outline btn-primary w-full"> Google</button>
+
+
+       <button onClick={handleGoogleSignIn} className="btn btn-outline btn-primary w-full"> Google</button>
 
 
            
