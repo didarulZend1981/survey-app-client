@@ -88,11 +88,13 @@ const Create = () => {
                             <select defaultValue="default" {...register('category', { required: true })}
                                 className="select select-bordered w-full">
                                 <option disabled value="default">Select a category</option>
-                                <option value="Cooking Appliances">Cooking Appliances</option>
-                                <option value="Food Preparation">Food Preparation</option>
-                                <option value="Beverage Makers">Beverage Makers</option>
-                                <option value="Cleaning Tools">Cleaning Tools</option>
-                                <option value="Storage Solutions">Storage Solutions</option>
+                                <option value="Cooking Appliances">Satisfaction</option>
+                                <option value="Food Preparation">Performance</option>
+                                <option value="Beverage Makers">Features</option>
+                                <option value="Cleaning Tools">Quality</option>
+                                <option value="Storage Solutions">Design</option>
+                                <option value="Storage Solutions">Design</option>
+                                <option value="Storage Solutions">Efficiency</option>
                             </select>
                         </div>
                         <div>

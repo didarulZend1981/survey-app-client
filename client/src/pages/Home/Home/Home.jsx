@@ -1,5 +1,8 @@
 import Banner from "./Banner/Banner";
 
+import LatestSixForm from "./LatestSixForm/LatestSixForm";
+
+
 
 const Home = () => {
  
@@ -7,7 +10,8 @@ const Home = () => {
   return (
     <div>
       <Banner/>
-    </div>
+      <LatestSixForm/>
+      </div>
   );
 };
 

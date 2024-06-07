@@ -14,6 +14,7 @@ import SingleSurvey from "../pages/Dashboard/Surveyor/SingleSurvey/SingleSurvey"
 import AllSurveys from "../pages/Dashboard/Admin/AllSurveys/AllSurveys";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/User/PaymentHistory/PaymentHistory";
+import SurveysDetails from "../pages/Home/SurveysDetails/SurveysDetails";
 
 
   const router = createBrowserRouter([
@@ -37,6 +38,12 @@ import PaymentHistory from "../pages/Dashboard/User/PaymentHistory/PaymentHistor
             path: 'signup',
             element: <SignUp></SignUp>
           },
+
+          
+          {
+            path: '/surveydetails/:id',
+            element: <SurveysDetails></SurveysDetails>
+          }
       ]
     },
     {
