@@ -6,6 +6,7 @@ import useAuth from "../../../hooks/useAuth";
 import useRole from "../../../hooks/useRole";
 import CurrentDate from "../../../components/CurrentDate/CurrentDate";
 import Swal from "sweetalert2";
+import Votingpaper from "./VotingPaper/Votingpaper";
 
 
 const SurveysDetails = () => {
@@ -61,11 +62,18 @@ const SurveysDetails = () => {
                
                 email:user?.email,
                 comments:data.comments,
-                comments:data.inapp,
+                inapp:data.inapp,
                 votingDate:formattedDate,
                 
            }
-           const menuRes = await axiosPublic.post('/serveyVoting', surveyItem);;
+
+           console.log(surveyItem)
+           const menuRes = await axiosPublic.post('/serveyVoting', surveyItem);
+     
+     
+      
+      
+      
       console.log("submite valuecheck------------",surveyItem)
       if(menuRes.data.insertedId){
           // show success popup
@@ -117,7 +125,7 @@ const SurveysDetails = () => {
 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
     <h2 className="card-title">{Title}</h2>
     <p>{   Description  }</p>
-{formattedDate}
+        {formattedDate}
     
 <label>
         Vote
@@ -131,6 +139,7 @@ const SurveysDetails = () => {
             <input type="radio" value='yes' {...register('vote', { required: 'vote is required' })} />
            yes
           </label>
+          
           
         </div>
 
@@ -147,6 +156,13 @@ const SurveysDetails = () => {
                             <span className="label-text">comments</span>
                         </label>
                         <textarea {...register('comments')} className="textarea textarea-bordered h-24" placeholder="comments"></textarea>
+                    </div>
+
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">inapp</span>
+                        </label>
+                        <textarea {...register('inapp')} className="textarea textarea-bordered h-24" placeholder="comments"></textarea>
                     </div>
 
 

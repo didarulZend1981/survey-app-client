@@ -17,7 +17,8 @@ const TopCard = ({catCard}) => {
   console.log("role--------------------email--",role)
   const axiosPublic = useAxiosPublic();
   const { refetch, data: surySngle = [] } = useQuery({
-    queryKey: ['surveyor/${id}'],
+    queryKey: [`surveyor/${_id}`],
+   
     queryFn: async() => {
             const { data } = await axiosPublic.get(`/surveyor/${_id}`);
             return data;
@@ -26,7 +27,7 @@ const TopCard = ({catCard}) => {
     })
 
     const { data: yesVote = [] } = useQuery({
-      queryKey: ['vote/collect/${id}'],
+      queryKey: [`vote/collect/${_id}`],
       queryFn: async() => {
               const { data } = await axiosPublic.get(`/vote/collect/${_id}`);
               return data;
@@ -42,7 +43,7 @@ const TopCard = ({catCard}) => {
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
   <figure><img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
   <div className="card-body">
-    <h2 className="card-title">{Title}</h2>
+    <h2 className="card-title">{Title}-{_id}</h2>
     <p>{Description}</p>
     <p>{deadline}</p>
     <p>{createDate}</p>

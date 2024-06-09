@@ -15,6 +15,9 @@ const LatestSixForm = () => {
         }
         
     })
+
+   
+    console.log("date---------------------------------",new Date())
   return (
     <div>
 
@@ -42,6 +45,8 @@ const LatestSixForm = () => {
 
                       
                   )
+
+                   
           }
 
 

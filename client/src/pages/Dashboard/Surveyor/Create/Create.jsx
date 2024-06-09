@@ -30,6 +30,7 @@ const Create = () => {
   // Rearrange the parts in the desired format 'dd/mm/yyyy'
   const formattedDate = `${parts[2]}/${parts[1]}/${parts[0]}`;
    console.log(formattedDate);
+
   const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: {
           'content-type': 'multipart/form-data'
@@ -45,10 +46,13 @@ const Create = () => {
             category: data.category,
             status: 1,
             email:user?.email,
-            image: res.data.data.display_url
+            image: res.data.data.display_url,
+            totalVotes: 0,
+            yesVotes: 0,
+            nolVotes: 0
       }
       // 
-      const menuRes = await axiosSecure.post('/surveysForm', formItem);
+      const menuRes = await axiosPublic.post('/surveysForm', formItem);
       console.log("submite valuecheck------------",formItem)
       if(menuRes.data.insertedId){
           // show success popup
@@ -111,17 +115,7 @@ const Create = () => {
                            
                         <div>
         <label>vote:</label>
-        <div>
-          <label>
-            <input type="radio" value="0" {...register('vote', { required: 'vote is required' })} />
-            No
-          </label>
-          <label>
-            <input type="radio" value="1" {...register('vote', { required: 'vote is required' })} />
-           yes
-          </label>
-          
-        </div>
+        
         
       </div>
                         

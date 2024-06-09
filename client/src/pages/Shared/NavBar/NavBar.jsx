@@ -15,6 +15,7 @@ const NavBar = () => {
   const navItems =<>
        
           <li><Link to="/">Home</Link></li>
+          <li><Link to="/surveysPages">All Surveys</Link></li>
           <li><Link to="/surveys">Surveys</Link></li>
           <li><Link to="/dashboard/adminHome">ADMIN</Link></li>
           <li><Link to="/dashboard/payment">PRO-USER</Link></li>

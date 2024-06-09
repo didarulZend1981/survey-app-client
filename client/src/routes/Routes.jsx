@@ -15,6 +15,7 @@ import AllSurveys from "../pages/Dashboard/Admin/AllSurveys/AllSurveys";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/User/PaymentHistory/PaymentHistory";
 import SurveysDetails from "../pages/Home/SurveysDetails/SurveysDetails";
+import SurveysPage from "../pages/SurveysPage/SurveysPage";
 
 
   const router = createBrowserRouter([
@@ -43,6 +44,12 @@ import SurveysDetails from "../pages/Home/SurveysDetails/SurveysDetails";
           {
             path: '/surveydetails/:id',
             element: <SurveysDetails></SurveysDetails>
+          },
+
+          
+          {
+            path: '/surveysPages',
+            element: <SurveysPage></SurveysPage>
           }
       ]
     },
