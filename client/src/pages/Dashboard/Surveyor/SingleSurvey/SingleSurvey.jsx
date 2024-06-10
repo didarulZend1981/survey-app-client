@@ -22,11 +22,11 @@ const axiosPublic = useAxiosPublic();
         
     })
 
- console.log("---------------------------",surySngle[0].Title);
+ console.log("---------------------------",surySngle[0]);
   console.log(id);
   return (
     <div>
-      <SectionTitle subHeading={surySngle[0].Title} heading={surySngle.length}></SectionTitle>
+      <SectionTitle subHeading="" heading={surySngle.length}></SectionTitle>
       <div className="overflow-x-auto">
   <table className="table">
     {/* head */}

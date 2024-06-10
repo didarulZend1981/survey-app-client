@@ -5,8 +5,9 @@ const SuryDataRow = ({survey,refetch,serialNumber}) => {
    
       <tr>
               <td>{serialNumber}</td>
-              <td>{survey.email}</td>
-              <td>{survey.vote}</td>
+              <td>{survey?.email}</td>
+              <td>{survey?.userName}</td>
+              <td>{survey?.vote}</td>
             <td></td>
               
            

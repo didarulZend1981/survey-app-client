@@ -1,17 +1,31 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
 
 
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
+
+
+ 
+
   const { data: users = [], refetch } = useQuery({
-      queryKey: ['users'],
-      queryFn: async () => {
-          const res = await axiosSecure.get('/users');
-          return res.data;
-      }
-  })
+    queryKey: ['users'],
+    queryFn: async () => {
+        const res = await axiosSecure.get('/users');
+        return res.data;
+    }
+})
+
+
+//   const { data: users = [], refetch } = useQuery({
+//       queryKey: ['users'],
+//       queryFn: async () => {
+//           const res = await axiosSecure.get('/users');
+//           return res.data;
+//       }
+//   })
 
 
   const proUserProm = user =>{
@@ -23,7 +37,7 @@ const AllUsers = () => {
             Swal.fire({
                 position: "top-end",
                 icon: "success",
-                title: `${user.name} is an pro-user Now!`,
+                title: `${user.name} is an surveyor Now!`,
                 showConfirmButton: false,
                 timer: 1500
               });
@@ -32,6 +46,10 @@ const AllUsers = () => {
 }
   return (
     <div>
+
+<SectionTitle subHeading="Admin" heading="By defult role user, member ship purches pro-user,user update surveyor by admin "></SectionTitle>
+
+
           <div className="flex justify-evenly my-4">
                 <h2 className="text-3xl">All Users</h2>
                 <h2 className="text-3xl">Total Users: {users.length}</h2>
@@ -58,10 +76,10 @@ const AllUsers = () => {
                                 <td>{user.email}</td>
                                 <td>{user.role}</td>
                                 <td>
-                                    { user.role === 'pro-user' ? 'pro-user' : <button
+                                    { user.role === 'surveyor' ? 'surveyor' : <button
                                         onClick={() => proUserProm(user)}
                                         className="btn btn-lg bg-orange-500">
-                                       
+                                       surveyor
                                     </button>}
                                 </td>
                             </tr>)

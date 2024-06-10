@@ -49,6 +49,7 @@ const Update = () => {
             category: data.category,
             status: 1,
             email:user?.email,
+            userName:user?.displayName,
             image: res.data.data.display_url,
             totalVotes: 0,
             yesVotes: 0,

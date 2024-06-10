@@ -79,6 +79,7 @@ const SurveysDetails = () => {
                 vote:vote,
                
                 email:user?.email,
+                userName:user?.displayName,
                 comments:data.comments,
                 inapp:data.inapp,
                 votingDate:formattedDate,
@@ -99,7 +100,7 @@ const SurveysDetails = () => {
           Swal.fire({
               position: "top-end",
               icon: "success",
-              title: `${Title} is added to the surveysForm.`,
+              title: `${Title} is your vote.`,
               showConfirmButton: false,
               timer: 1500
             });
