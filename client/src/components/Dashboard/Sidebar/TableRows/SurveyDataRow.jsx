@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 
 const SurveyDataRow = ({survey,refetch,serialNumber}) => {
-  console.log(survey);
-  const {_id,Title,deadline,image} =survey
-  const parts = deadline.split('-');
+ 
+  const {_id,Title,deadline,image,totalVotes,yesVotes} =survey
+     const parts = deadline.split('-');
   // Rearrange the parts in the desired format 'dd/mm/yyyy'
-  const fdeadline = `${parts[2]}-${parts[1]}-${parts[0]}`;
+    const fdeadline = `${parts[2]}-${parts[1]}-${parts[0]}`;
 
   // const Cparts = data.create_date.split('-');
   // // Rearrange the parts in the desired format 'dd/mm/yyyy'
@@ -17,6 +17,9 @@ const SurveyDataRow = ({survey,refetch,serialNumber}) => {
               <td>{serialNumber}</td>
               <td>{Title}</td>
               <td>{fdeadline}</td>
+              <td>{yesVotes}</td>
+              <td>{totalVotes-yesVotes}</td>
+              <td>{totalVotes}</td>
               <td><img src={image} className="w-[50px]"/></td>
               <td> 
                 

@@ -26,7 +26,7 @@ const SurveysDetails = () => {
         
     })
   
-    const {Title,Description,deadline,createDate,category,image} = surySngle;
+    const {Title,Description,deadline,createDate,category,image,totalVotes,yesVotes} = surySngle;
    
   //  const dateString = today.toDateString();
 
@@ -150,7 +150,6 @@ const SurveysDetails = () => {
     <h2 className="card-title">{Title}</h2>
     <p>{   Description  }</p>
         {formattedDate}
-
     
 <label>
         Vote
@@ -208,22 +207,28 @@ const SurveysDetails = () => {
                         {/* {deadline>formattedDate} */}
                        
                
-            {  todyDead>deadline?<>vonte end</>:<>vote continiu</>  }
+            
+          {  todyDead>deadline?<>vote continiu</>:<>vonte end</>  }
+
+
+          {  todyDead>deadline?<>vote continiu</>:<>
           
+          
+          <div>
+
+              <p>Yes Vote:{yesVotes}</p>
+              <p>No Vote:{totalVotes-yesVotes}</p>
+              <p>Total Vote:{totalVotes}</p>
+          </div>
+          
+          
+          </>  }
              
-               
+          totalVotes,yesVotes
                     {user ? 
 
                     <><div className="card-actions justify-end">
-                    <button className="btn btn-primary">{  todyDead>deadline?<>
-                    vote continiu
-                    </>:
-                    <>
-                    
-                        <div></div>
-                    
-                    
-                    </>  }</button>
+                    <button className="btn btn-primary">{  todyDead>deadline?<>vote continiu</>:<>vonte end</>  }</button>
                   </div></>:
 
                   <>

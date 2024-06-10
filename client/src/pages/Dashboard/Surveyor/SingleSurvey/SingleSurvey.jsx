@@ -1,8 +1,32 @@
+import { useParams } from "react-router-dom";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useAuth from "../../../../hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../../hooks/useAxiosPublic";
+import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
+import SuryDataRow from "../../../../components/Dashboard/Sidebar/TableRows/SuryDataRow";
 
 
 const SingleSurvey = () => {
+  const {id} = useParams();
+
+  const {user} =useAuth();
+  
+const axiosPublic = useAxiosPublic();
+  const { refetch, data: surySngle = [] } = useQuery({
+    queryKey: ['vote/collect/${id}'],
+    queryFn: async() => {
+            const { data } = await axiosPublic.get(`/vote/collect/${id}`);
+            return data;
+        }
+        
+    })
+
+ console.log("---------------------------",surySngle[0].Title);
+  console.log(id);
   return (
     <div>
+      <SectionTitle subHeading={surySngle[0].Title} heading={surySngle.length}></SectionTitle>
       <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
@@ -16,27 +40,18 @@ const SingleSurvey = () => {
       </tr>
     </thead>
     <tbody>
-      {/* row 1 */}
-      <tr className="bg-base-200">
-        <th>1</th>
-        <td>Cy Ganderton</td>
-        <td>Quality Control Specialist</td>
-        <td>Blue</td>
-      </tr>
-      {/* row 2 */}
-      <tr>
-        <th>2</th>
-        <td>Hart Hagerty</td>
-        <td>Desktop Support Technician</td>
-        <td>Purple</td>
-      </tr>
-      {/* row 3 */}
-      <tr>
-        <th>3</th>
-        <td>Brice Swyre</td>
-        <td>Tax Accountant</td>
-        <td>Red</td>
-      </tr>
+    {
+                    
+                  
+                    surySngle.map((survey,index) => (
+                      <SuryDataRow
+                      
+                        key={survey?._id}// Unique key for React's reconciliation
+                        serialNumber={index + 1} // Serial number starting from 1
+                        survey={survey}
+                        refetch={refetch}
+                      />
+                    ))}
     </tbody>
   </table>
 </div>

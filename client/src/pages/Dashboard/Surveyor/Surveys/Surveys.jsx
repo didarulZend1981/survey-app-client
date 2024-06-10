@@ -38,6 +38,9 @@ const Surveys = () => {
         <th>Serial No</th>
         <th>Title</th>
         <th>Deadline</th>
+        <th>Yes</th>
+        <th>No</th>
+        <th>Total</th>
         <th>Image</th>
         <th>Action</th>
       </tr>
