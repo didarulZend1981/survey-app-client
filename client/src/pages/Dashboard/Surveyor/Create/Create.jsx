@@ -28,9 +28,15 @@ const Create = () => {
   const imageFile = { image: data.image[0] }
   const parts = data.deadline.split('-');
   // Rearrange the parts in the desired format 'dd/mm/yyyy'
-  const formattedDate = `${parts[2]}/${parts[1]}/${parts[0]}`;
-   console.log(formattedDate);
+  const fdeadline = `${parts[2]}-${parts[1]}-${parts[0]}`;
 
+  const Cparts = data.create_date.split('-');
+  // Rearrange the parts in the desired format 'dd/mm/yyyy'
+  const Cdeadline = `${Cparts[2]}-${Cparts[1]}-${Cparts[0]}`;
+   console.log("date formating---------------",fdeadline,Cdeadline);
+
+  
+   
   const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: {
           'content-type': 'multipart/form-data'
@@ -41,21 +47,22 @@ const Create = () => {
       const formItem = {
             Description: data.Description,
             Title: data.Title,
-            deadline: data.deadline,
-            createDate: data.create_date,
+            deadline: fdeadline,
+            createDate: Cdeadline,
             category: data.category,
             status: 1,
             email:user?.email,
             image: res.data.data.display_url,
             totalVotes: 0,
             yesVotes: 0,
-            nolVotes: 0
+            noVotes: 0
       }
       // 
+    //   console.log("goooed datt     -------",formItem);
       const menuRes = await axiosPublic.post('/surveysForm', formItem);
-      console.log("submite valuecheck------------",formItem)
+    //   console.log("submite valuecheck------------",formItem)
       if(menuRes.data.insertedId){
-          // show success popup
+          //show success popup
           reset();
           Swal.fire({
               position: "top-end",

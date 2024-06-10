@@ -43,6 +43,7 @@ const NavBar = () => {
     </ul>
   </div>
   <div className="navbar-end">
+  
   {
             user ? <>
                 <span>{user?.displayName}</span>

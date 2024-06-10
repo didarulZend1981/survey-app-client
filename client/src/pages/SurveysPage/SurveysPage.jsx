@@ -41,7 +41,7 @@ const SurveysPage = () => {
           onChange={(e) => setCategory(e.target.value)}
 
           className="select select-secondary w-full max-w-xs">
-                  <option value="none" selected>Pick your favorite language</option>
+                  <option value="none" selected>All</option>
                   <option value="Cooking Appliances">Satisfaction</option>
                                 <option value="Food Preparation">Performance</option>
                                 <option value="Beverage Makers">Features</option>

@@ -20,6 +20,14 @@ const Update = () => {
   const onSubmit = async (data) => {
     console.log(data)
     // image upload to imgbb and then get an url
+    const parts = data.deadline.split('-');
+    // Rearrange the parts in the desired format 'dd/mm/yyyy'
+    const fdeadline = `${parts[2]}-${parts[1]}-${parts[0]}`;
+  
+    const Cparts = data.create_date.split('-');
+    // Rearrange the parts in the desired format 'dd/mm/yyyy'
+    const Cdeadline = `${Cparts[2]}-${Cparts[1]}-${Cparts[0]}`;
+
     const imageFile = { image: data.image[0] }
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
         headers: {
@@ -41,9 +49,16 @@ const Update = () => {
             category: data.category,
             status: 1,
             email:user?.email,
-            image: res.data.data.display_url
+            image: res.data.data.display_url,
+            totalVotes: 0,
+            yesVotes: 0,
+            noVotes: 0
         }
         // 
+
+        
+
+
         const surveyorRes = await axiosSecure.patch(`/surveyor/${_id}`, SurveyItem);
         console.log(surveyorRes.data)
         if(surveyorRes.data.modifiedCount > 0){
@@ -108,28 +123,7 @@ const Update = () => {
                         type="date" {...register('deadline')} />
                         </div>
 
-                        {/* price */}
-                        <div className="form-control w-full my-6">
-                           
-                        <div>
-        <label>vote:</label>
-        <div>
-          <label>
-            <input type="radio" value="0" {...register('vote', { required: 'vote is required' })} />
-            No
-          </label>
-          <label>
-            <input type="radio" value="1" {...register('vote', { required: 'vote is required' })} />
-           yes
-          </label>
-          
-        </div>
-        
-      </div>
                         
-                        
-                        
-                        </div>
 
                     </div>
                     {/* recipe details */}

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useAuth from "../../../../hooks/useAuth";
 import SurveyDataRow from "../../../../components/Dashboard/Sidebar/TableRows/SurveyDataRow";
+import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
 
 const Surveys = () => {
   const {user} =useAuth();
@@ -24,11 +25,12 @@ const Surveys = () => {
 
   return (
     <div>
-      <div className="flex justify-evenly my-4">
+      <SectionTitle subHeading="All Surveys" heading={SurveyAll.length}></SectionTitle>
+      {/* <div className="flex justify-evenly my-4">
                 <h2 className="text-3xl">All Surveys</h2>
-                <h2 className="text-3xl">Total Surveys: {SurveyAll.length}</h2>
-      </div>
-      <table>
+                <h2 className="text-3xl">Total Surveys:didar {SurveyAll.length}</h2>
+      </div> */}
+      <table className="w-full">
       <table className="table table-zebra">
     {/* head */}
     <thead>

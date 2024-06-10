@@ -16,6 +16,8 @@ import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/User/PaymentHistory/PaymentHistory";
 import SurveysDetails from "../pages/Home/SurveysDetails/SurveysDetails";
 import SurveysPage from "../pages/SurveysPage/SurveysPage";
+import Bvote from "../pages/Home/SurveysDetails/Bvote";
+import PrivateRoute from "./PrivateRoute";
 
 
   const router = createBrowserRouter([
@@ -46,6 +48,11 @@ import SurveysPage from "../pages/SurveysPage/SurveysPage";
             element: <SurveysDetails></SurveysDetails>
           },
 
+          {
+            path: '/vote/:id',
+            element: <PrivateRoute><Bvote></Bvote></PrivateRoute>
+          },
+         
           
           {
             path: '/surveysPages',

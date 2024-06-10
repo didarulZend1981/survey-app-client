@@ -1,18 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import useRole from "../../../hooks/useRole";
 import CurrentDate from "../../../components/CurrentDate/CurrentDate";
 import Swal from "sweetalert2";
-import Votingpaper from "./VotingPaper/Votingpaper";
+
+
 
 
 const SurveysDetails = () => {
   const {id} = useParams();
   const { user, logOut } = useAuth();
   const [role, isLoading] = useRole()
+ 
   console.log("role--------------------email--",role)
   const axiosPublic = useAxiosPublic();
   const { refetch, data: surySngle = [] } = useQuery({
@@ -28,6 +30,9 @@ const SurveysDetails = () => {
    
   //  const dateString = today.toDateString();
 
+    console.log("number of vote---------",surySngle)
+  
+
    const today = new Date();
    const day = String(today.getDate()).padStart(2, '0');
    const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
@@ -35,7 +40,20 @@ const SurveysDetails = () => {
  
    const formattedDate = `${day}-${month}-${year}`;
 
+   const dayC = String(today.getDate()).padStart(2, '0');
+    const monthC = String(today.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+    const yearC = today.getFullYear();
+    
+    const todyDead = `${yearC}-${monthC}-${dayC}`;
 
+
+  //  const parts = deadline.split('-');
+  //  // Rearrange the parts in the desired format 'dd/mm/yyyy'
+  //  const fdeadline = `${parts[2]}-${parts[1]}-${parts[0]}`;
+ 
+  //  const Cparts = createDate.split('-');
+  //  // Rearrange the parts in the desired format 'dd/mm/yyyy'
+  //  const Cdeadline = `${Cparts[2]}-${Cparts[1]}-${Cparts[0]}`;
 
   //  deadline
       
@@ -81,13 +99,19 @@ const SurveysDetails = () => {
           Swal.fire({
               position: "top-end",
               icon: "success",
-              title: `${data.Title} is added to the surveysForm.`,
+              title: `${Title} is added to the surveysForm.`,
               showConfirmButton: false,
               timer: 1500
             });
       }
 
            console.log(surveyItem);
+
+           
+           const currentDate = new Date();
+            const toda = formatDat(currentDate);
+
+            
 
     }
   return (
@@ -126,6 +150,7 @@ const SurveysDetails = () => {
     <h2 className="card-title">{Title}</h2>
     <p>{   Description  }</p>
         {formattedDate}
+
     
 <label>
         Vote
@@ -150,17 +175,29 @@ const SurveysDetails = () => {
           
         </div>
 
+        
+        {
+          user && role=="pro-user" ? 
+               
+               <>
+               <div className="form-control">
+               <label className="label">
+                   <span className="label-text">comments</span>
+               </label>
+               <textarea {...register('comments')} className="textarea textarea-bordered h-24" placeholder="comments"></textarea>
+           </div>
+           </>
+               :<>
+              
+               
+               </>
 
-        <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">comments</span>
-                        </label>
-                        <textarea {...register('comments')} className="textarea textarea-bordered h-24" placeholder="comments"></textarea>
-                    </div>
+         }
+        
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">inapp</span>
+                            <span className="label-text"> Report inappropriate</span>
                         </label>
                         <textarea {...register('inapp')} className="textarea textarea-bordered h-24" placeholder="comments"></textarea>
                     </div>
@@ -168,12 +205,32 @@ const SurveysDetails = () => {
 
                     {/* <input type="date" value={deadline} {...register('deadline')}  /> */}
 
+                        {/* {deadline>formattedDate} */}
+                       
+               
+            {  todyDead>deadline?<>vonte end</>:<>vote continiu</>  }
+          
+             
+               
+                    {user ? 
 
-                   
-                    {/* <CurrentDate date={createDate} /> */}
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Submit</button>
-    </div>
+                    <><div className="card-actions justify-end">
+                    <button className="btn btn-primary">{  todyDead>deadline?<>
+                    vote continiu
+                    </>:
+                    <>
+                    
+                        <div></div>
+                    
+                    
+                    </>  }</button>
+                  </div></>:
+
+                  <>
+                    <a className="btn"><Link to="/login">Login</Link></a>
+                  </>
+                  }
+    
     </form>
  
 </div>
