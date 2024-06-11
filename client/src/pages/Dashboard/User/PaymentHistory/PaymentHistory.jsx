@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
+import PaymentHistoryRow from "../../../../components/Dashboard/Sidebar/TableRows/PaymentHistoryRow";
+import CurrentDate from "../../../../components/CurrentDate/CurrentDate";
 
 
 const PaymentHistory = () => {
@@ -35,21 +37,38 @@ console.log(paymentPro);
                   <th>transactionId</th>
                   <th>date</th>
                   <th>member</th>
-                  <th>comments number</th>
+                 
               </tr>
           </thead>
           <tbody>
+            
               {
                   paymentPro.map((pay, index) => <tr key={pay._id}>
                       <th>{index + 1}</th>
                       <th>{pay.email}</th>
                       <th>{pay.price}</th>
                       <th>{pay.transactionId}</th>
-                      <th>{pay.date}</th>
+                      <th><CurrentDate date={pay.date}></CurrentDate></th>
                       <th>{pay.member}</th>
                      
                   </tr>)
               }
+
+
+{
+                    
+                  
+                    paymentPro.map((payment,index) => (
+                  
+                      <PaymentHistoryRow
+                        key={payment?._id}// Unique key for React's reconciliation
+                        serialNumber={index + 1} // Serial number starting from 1
+                        pay={payment}
+                        refetch={refetch}
+                      />
+                    ))
+                    
+                    }
 
           </tbody>
       </table>

@@ -39,9 +39,10 @@ const Sidebar = () => {
       <li><Link to="/dashboard/user/paymentHistory">Payment</Link></li>
 
      
-      
+     
       user
-      <li><a>Participate in surveys</a></li>
+      <li><Link to="/dashboard/user/surveys">Participate in surveys</Link></li>
+      
       <li><a>Reported surveys.</a></li>
       <li><a>Commented on surveys.</a></li>
    

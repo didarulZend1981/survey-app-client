@@ -52,7 +52,9 @@ const AllSurveys = () => {
                       survey={survey}
                       refetch={refetch}
                     />
-                  ))}
+                  ))
+                  
+                  }
                 </tbody>
   </table>
       </table>

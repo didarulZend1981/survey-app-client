@@ -30,7 +30,7 @@ const Surveys = () => {
                 <h2 className="text-3xl">All Surveys</h2>
                 <h2 className="text-3xl">Total Surveys:didar {SurveyAll.length}</h2>
       </div> */}
-      <table className="w-full">
+      
       <table className="table table-zebra">
     {/* head */}
     <thead>
@@ -60,7 +60,7 @@ const Surveys = () => {
                   ))}
                 </tbody>
   </table>
-      </table>
+     
       
     </div>
   );
