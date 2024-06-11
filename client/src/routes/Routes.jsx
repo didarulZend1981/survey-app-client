@@ -20,6 +20,7 @@ import Bvote from "../pages/Home/SurveysDetails/Bvote";
 import PrivateRoute from "./PrivateRoute";
 import ParticipateSurveys from "../pages/Dashboard/User/ParticipateSurveys/ParticipateSurveys";
 import ReportedSurveys from "../pages/Dashboard/User/ReportedSurveys/ReportedSurveys";
+import CommentedProUser from "../pages/Dashboard/User/CommentedProUser/CommentedProUser";
 
 
   const router = createBrowserRouter([
@@ -115,6 +116,10 @@ import ReportedSurveys from "../pages/Dashboard/User/ReportedSurveys/ReportedSur
         {
           path:'user/my-reports',
           element:<ReportedSurveys></ReportedSurveys>
+        },
+        {
+          path:'user/comments',
+          element:<CommentedProUser></CommentedProUser>
         }
       ]
     }

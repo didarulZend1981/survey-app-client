@@ -153,7 +153,7 @@ const SurveysDetails = () => {
         {formattedDate}
     
 <label>
-        Vote
+       
         </label>
     <div>
           <label>

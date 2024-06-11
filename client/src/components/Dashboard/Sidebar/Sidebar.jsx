@@ -45,7 +45,7 @@ const Sidebar = () => {
       
       <li><Link to="/dashboard/user/my-reports">Reported surveys.</Link></li>
       <li><a>Commented on surveys.</a></li>
-   
+      <li><Link to="/dashboard/user/comments">Commented on surveys.</Link></li>
      
       
 

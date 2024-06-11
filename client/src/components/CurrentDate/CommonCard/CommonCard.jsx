@@ -8,6 +8,9 @@ const CommonCard = ({Title,Description,deadline,image,totalVotes,yesVotes,inapp}
             <div className="card-body">
             <h2 className="card-title">{Title}</h2>
             <p>{Description}</p>
+
+        
+
             <p>Total Vote:{totalVotes}
             Yes Vote:{yesVotes}
             No vote:{totalVotes-yesVotes}</p>
