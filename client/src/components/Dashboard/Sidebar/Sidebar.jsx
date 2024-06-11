@@ -43,7 +43,7 @@ const Sidebar = () => {
       user
       <li><Link to="/dashboard/user/surveys">Participate in surveys</Link></li>
       
-      <li><a>Reported surveys.</a></li>
+      <li><Link to="/dashboard/user/my-reports">Reported surveys.</Link></li>
       <li><a>Commented on surveys.</a></li>
    
      

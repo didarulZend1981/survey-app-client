@@ -19,6 +19,7 @@ import SurveysPage from "../pages/SurveysPage/SurveysPage";
 import Bvote from "../pages/Home/SurveysDetails/Bvote";
 import PrivateRoute from "./PrivateRoute";
 import ParticipateSurveys from "../pages/Dashboard/User/ParticipateSurveys/ParticipateSurveys";
+import ReportedSurveys from "../pages/Dashboard/User/ReportedSurveys/ReportedSurveys";
 
 
   const router = createBrowserRouter([
@@ -111,6 +112,10 @@ import ParticipateSurveys from "../pages/Dashboard/User/ParticipateSurveys/Parti
           path: 'user/surveys',
           element: <ParticipateSurveys></ParticipateSurveys>
         },
+        {
+          path:'user/my-reports',
+          element:<ReportedSurveys></ReportedSurveys>
+        }
       ]
     }
   ]);
