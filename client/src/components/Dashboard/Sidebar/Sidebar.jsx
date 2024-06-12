@@ -25,7 +25,51 @@ const Sidebar = () => {
     <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
       {/* Sidebar content here */}
     
-     surveyor
+
+
+      {
+            user && role==="admin" ? <>
+
+            <h2>role-admin</h2>
+                 <li><Link to="/dashboard/admin/users">Manage users</Link></li>
+                  <li><Link to="/dashboard/admin/surveys">Manage surveys Status</Link></li>
+      
+                  <li><Link to="/dashboard/user/paymentHistory">Payment</Link></li>
+           
+            </> : <>
+
+           {user && role ==="surveyor" ?<>
+           <h2>role-surveyor</h2>
+            <li><Link to="/dashboard/surveyAdd">ADD QUESTION</Link></li>
+            <li><Link to="/dashboard/surveyor/surveys">Manage surveys</Link></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/dashboard/surveyor/feedbacks">feedbacks</Link></li>
+           
+           </>:<>{
+
+            user && role === "pro-user"?<>
+            <h2>role-pro-user</h2>
+            <li><Link to="/dashboard/user/surveys">Participate in surveys</Link></li>
+      
+              <li><Link to="/dashboard/user/my-reports">Reported surveys.</Link></li>
+              <li><Link to="/dashboard/user/comments">Commented on surveys.</Link></li>
+            </>:<>
+
+            
+            <h2>role-user</h2>
+            <li><Link to="/dashboard/user/surveys">Participate in surveys</Link></li>
+      
+             <li><Link to="/dashboard/user/my-reports">Reported surveys.</Link></li>
+     
+            </>
+
+           }</>}
+
+
+            </>
+        }
+
+     {/* surveyor
       <li><Link to="/dashboard/surveyAdd">ADD QUESTION</Link></li>
       <li><Link to="/dashboard/surveyor/surveys">Manage surveys</Link></li>
       <li><Link to="/">Home</Link></li>
@@ -46,6 +90,7 @@ const Sidebar = () => {
       <li><Link to="/dashboard/user/my-reports">Reported surveys.</Link></li>
       <li><Link to="/dashboard/user/comments">Commented on surveys.</Link></li>
      
+       */}
       
 
       {

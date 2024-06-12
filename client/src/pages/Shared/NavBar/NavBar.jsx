@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import useRole from "../../../hooks/useRole";
 
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [role, isLoading] = useRole()
   console.log("never-----check",user);
   const handleLogOut = () => {
     logOut()
@@ -16,11 +18,15 @@ const NavBar = () => {
        
           <li><Link to="/">Home</Link></li>
           <li><Link to="/surveysPages">All Surveys</Link></li>
-          <li><Link to="/surveys">Surveys</Link></li>
-          <li><Link to="/dashboard/adminHome">ADMIN</Link></li>
+          {/* <li><Link to="/surveys">Surveys</Link></li> */}
+          {
+            user && role && <li><Link to="/dashboard/adminHome">ADMIN</Link></li>
+          }
           <li><Link to="/dashboard/payment">PRO-USER</Link></li>
           <li><Link to="/login">Login</Link></li>
           <li><Link to="/signup">SignUp</Link></li>
+
+          
           </>
   return (
     <div>
@@ -47,7 +53,7 @@ const NavBar = () => {
   {
             user ? <>
                 <span>{user?.displayName}</span>
-                <span><img src={user?.photoURL}></img></span>
+                <span><img src={user?.photoURL} className="w-[20px]"></img></span>
                 <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
             </> : 
             

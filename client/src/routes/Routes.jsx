@@ -69,7 +69,7 @@ import FBack from "../pages/Dashboard/Surveyor/FeedBack/FBeed/FBack";
     },
     {
       path: 'dashboard',
-      element: <Dashboard></Dashboard>,
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute> ,
       children: [
         {
           path: 'adminHome',
