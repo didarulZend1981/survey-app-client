@@ -17,7 +17,7 @@ const SurveysPage = () => {
         
         
         
-        const response = await axios.get(`http://localhost:5000/allSuryesPage?category=${category}&sort=${sort}`);
+        const response = await axios.get(`https://survey-app-ashy.vercel.app/allSuryesPage?category=${category}&sort=${sort}`);
         setSurveys(response.data);
       } catch (err) {
         console.error(err);

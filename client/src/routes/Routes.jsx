@@ -21,6 +21,10 @@ import PrivateRoute from "./PrivateRoute";
 import ParticipateSurveys from "../pages/Dashboard/User/ParticipateSurveys/ParticipateSurveys";
 import ReportedSurveys from "../pages/Dashboard/User/ReportedSurveys/ReportedSurveys";
 import CommentedProUser from "../pages/Dashboard/User/CommentedProUser/CommentedProUser";
+import FeedBack from "../pages/Dashboard/Surveyor/FeedBack/FeedBack";
+import FBack from "../pages/Dashboard/Surveyor/FeedBack/FBeed/FBack";
+
+
 
 
   const router = createBrowserRouter([
@@ -93,12 +97,19 @@ import CommentedProUser from "../pages/Dashboard/User/CommentedProUser/Commented
         {
           path: 'surveyor/update/:id',
           element: <Update></Update>,
-          loader: ({params}) => fetch(`http://localhost:5000/surveyor/${params.id}`)
+          loader: ({params}) => fetch(`https://survey-app-ashy.vercel.app/surveyor/${params.id}`)
         },
         {
           path: 'surveyor/surveys/:id',
           element: <SingleSurvey></SingleSurvey>,
-          loader: ({params}) => fetch(`http://localhost:5000/surveyor/${params.id}`)
+          loader: ({params}) => fetch(`https://survey-app-ashy.vercel.app/surveyor/${params.id}`)
+        }
+
+        ,
+        {
+          path: 'surveyor/feedback/:id',
+          element: <FBack></FBack>,
+          loader: ({params}) => fetch(`https://survey-app-ashy.vercel.app/feedback/${params.id}`)
         },
         {
           path: 'payment',
@@ -120,7 +131,12 @@ import CommentedProUser from "../pages/Dashboard/User/CommentedProUser/Commented
         {
           path:'user/comments',
           element:<CommentedProUser></CommentedProUser>
+        },
+        {
+          path:'surveyor/feedbacks',
+          element:<FeedBack></FeedBack>
         }
+
       ]
     }
   ]);

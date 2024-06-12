@@ -14,7 +14,7 @@ const ParticipateSurveys = () => {
 //  const fetchSurveys = async () => {
 //  try {
         
-//         const response = await axios.get('http://localhost:5000/participate/surveys/didarul1981@gmail.com');
+//         const response = await axios.get('https://survey-app-ashy.vercel.app/participate/surveys/didarul1981@gmail.com');
 //         setSurveys(response.data);
 //       } catch (err) {
 //         console.error(err);

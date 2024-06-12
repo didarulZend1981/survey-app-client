@@ -29,14 +29,14 @@ const Sidebar = () => {
       <li><Link to="/dashboard/surveyAdd">ADD QUESTION</Link></li>
       <li><Link to="/dashboard/surveyor/surveys">Manage surveys</Link></li>
       <li><Link to="/">Home</Link></li>
-
+      <li><Link to="/dashboard/surveyor/feedbacks">feedbacks</Link></li>
   
       admin
       <li><Link to="/dashboard/admin/users">Manage users</Link></li>
       <li><Link to="/dashboard/admin/surveys">Manage surveys Status</Link></li>
       
-      <li><a>View all payments and survey responses</a></li>
       <li><Link to="/dashboard/user/paymentHistory">Payment</Link></li>
+      
 
      
      
@@ -44,7 +44,6 @@ const Sidebar = () => {
       <li><Link to="/dashboard/user/surveys">Participate in surveys</Link></li>
       
       <li><Link to="/dashboard/user/my-reports">Reported surveys.</Link></li>
-      <li><a>Commented on surveys.</a></li>
       <li><Link to="/dashboard/user/comments">Commented on surveys.</Link></li>
      
       
