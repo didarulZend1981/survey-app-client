@@ -18,7 +18,7 @@ console.log(voteColllection);
   return (
     <div>
           <div className="text-center mt-10 mb-10">
-          <h3 className="text-3xl text-orange-700 font-bold">most recently created surveys of {voteColllection.length}</h3>
+          <h3 className="text-3xl text-orange-700 font-bold"> most voted surveys of {voteColllection.length}</h3>
           
           
         </div>

@@ -55,12 +55,16 @@ const Sidebar = () => {
               <li><Link to="/dashboard/user/comments">Commented on surveys.</Link></li>
             </>:<>
 
+            {user && role === "user"?<>
             
-            <h2>role-user</h2>
+              <h2>role-user</h2>
             <li><Link to="/dashboard/user/surveys">Participate in surveys</Link></li>
       
              <li><Link to="/dashboard/user/my-reports">Reported surveys.</Link></li>
      
+            
+            </>:<></>}
+           
             </>
 
            }</>}

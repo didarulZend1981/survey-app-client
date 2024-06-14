@@ -2,7 +2,7 @@
 
 
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 import SocialLogin from "../SocialLogin/SocialLogin";
@@ -17,6 +17,10 @@ const SignUp = () => {
   const { createUser, updateUserProfile,setLoading } = useAuth();
   const navigate = useNavigate();
   const axiosPublic = useAxiosPublic();
+  
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+    console.log(from);
 
   const onSubmit = data => {
     
@@ -48,7 +52,7 @@ const SignUp = () => {
                                         showConfirmButton: false,
                                         timer: 1500
                                     });
-                                    navigate('/');
+                                    navigate(from, { replace: true });
                                 }
                             })
 

@@ -23,6 +23,7 @@ import ReportedSurveys from "../pages/Dashboard/User/ReportedSurveys/ReportedSur
 import CommentedProUser from "../pages/Dashboard/User/CommentedProUser/CommentedProUser";
 import FeedBack from "../pages/Dashboard/Surveyor/FeedBack/FeedBack";
 import FBack from "../pages/Dashboard/Surveyor/FeedBack/FBeed/FBack";
+import MembarShip from "../pages/MemberShip/MembarShip";
 
 
 
@@ -64,7 +65,19 @@ import FBack from "../pages/Dashboard/Surveyor/FeedBack/FBeed/FBack";
           {
             path: '/surveysPages',
             element: <SurveysPage></SurveysPage>
-          }
+          },
+          {
+          path: 'membarShip',
+          element: <MembarShip></MembarShip>
+        },
+        
+        {
+          path: 'payment',
+          element: <PrivateRoute><Payment></Payment></PrivateRoute>
+        }
+        
+
+
       ]
     },
     {
@@ -111,10 +124,10 @@ import FBack from "../pages/Dashboard/Surveyor/FeedBack/FBeed/FBack";
           element: <FBack></FBack>,
           loader: ({params}) => fetch(`https://survey-app-ashy.vercel.app/feedback/${params.id}`)
         },
-        {
-          path: 'payment',
-          element: <Payment></Payment>
-        },
+        // {
+        //   path: 'payment',
+        //   element: <Payment></Payment>
+        // },
         
         {
           path: 'user/paymentHistory',
