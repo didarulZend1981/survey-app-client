@@ -101,8 +101,9 @@ const CheckoutForm = () => {
                     timer: 1500
                 });
                 // navigate('/dashboard/user/paymentHistory')
-
-                navigate('/dashboard/adminHome')
+                
+                // navigate('/dashboard/adminHome')
+                navigate('/dashboard/user/pro/paymentHistory')
             }
 
         }

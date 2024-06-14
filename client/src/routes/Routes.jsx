@@ -24,6 +24,7 @@ import CommentedProUser from "../pages/Dashboard/User/CommentedProUser/Commented
 import FeedBack from "../pages/Dashboard/Surveyor/FeedBack/FeedBack";
 import FBack from "../pages/Dashboard/Surveyor/FeedBack/FBeed/FBack";
 import MembarShip from "../pages/MemberShip/MembarShip";
+import ProPayment from "../pages/Dashboard/User/ProPayment/ProPayment";
 
 
 
@@ -133,6 +134,12 @@ import MembarShip from "../pages/MemberShip/MembarShip";
           path: 'user/paymentHistory',
           element: <PaymentHistory></PaymentHistory>
         },
+
+        {
+          path: 'user/pro/paymentHistory',
+          element: <ProPayment></ProPayment>
+        },
+
         {
           path: 'user/surveys',
           element: <ParticipateSurveys></ParticipateSurveys>
