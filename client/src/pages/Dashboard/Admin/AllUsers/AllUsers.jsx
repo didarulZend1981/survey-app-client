@@ -2,21 +2,45 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import SectionTitle from "../../../../components/SectionTitle/SectionTitle";
-
+import { useEffect, useState } from "react";
+import axios from 'axios';
 
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
+  const [users, setUsers] = useState([]);
+  const [role, setRole] = useState('');
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        
+        
+        
+        const response = await axios.get(`https://survey-app-ashy.vercel.app/all/user?role=${role}`);
+        setUsers(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchUsers();
+  }, [role]);
 
 
- 
 
-  const { data: users = [], refetch } = useQuery({
-    queryKey: ['users'],
-    queryFn: async () => {
-        const res = await axiosSecure.get('/users');
-        return res.data;
-    }
-})
+
+
+
+
+
+
+//   const { data: users = [], refetch } = useQuery({
+//     queryKey: ['users'],
+//     queryFn: async () => {
+//         const res = await axiosSecure.get('/users');
+//         return res.data;
+//     }
+// })
 
 
 //   const { data: users = [], refetch } = useQuery({
@@ -52,6 +76,27 @@ const AllUsers = () => {
 
           <div className="flex justify-evenly my-4">
                 <h2 className="text-3xl">All Users</h2>
+            
+
+                <select 
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+
+          className="select select-secondary w-full max-w-xs">
+                  <option value="none" selected>All</option>
+                  <option value="pro-user">pro-user</option>
+                                <option value="user">user</option>
+                                <option value="surveyor">surveyor</option>
+                                <option value="admin">admin</option>
+                               
+          </select>
+
+
+
+
+
+
+
                 <h2 className="text-3xl">Total Users: {users.length}</h2>
           </div>
 
