@@ -23,7 +23,15 @@ const LatestSixForm = () => {
 
 
      
-        <h2 className='mt-[24px] text-center text-upercase text-[24px] text-upercase'>most recently created surveys of {surveyorsLatest.length}</h2>
+       
+
+        <div className="text-center mt-15 mb-10">
+          <h3 className="text-2xl text-orange-700 font-bold uppercase border-b-[3px] w-[400px] mx-auto pb-2"> most recently surveys of {surveyorsLatest.length}</h3>
+          
+          
+        </div>
+
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-10">
         

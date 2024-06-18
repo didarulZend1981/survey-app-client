@@ -34,24 +34,29 @@ const SurveysPage = () => {
 
   return (
     <div>
-          <h2 className="py-24 text-center">SurveysPage</h2>
-          <div>
+          
+          <div className="pt-24">
+          <h2 className=" text-center uppercase">SurveysPage</h2>
+          </div>
+          <div className="mt-4 mb-2 text-center">
           <select 
           value={category}
           onChange={(e) => setCategory(e.target.value)}
 
           className="select select-secondary w-full max-w-xs">
                   <option value="none" selected>All</option>
-                  <option value="Cooking Appliances">Satisfaction</option>
-                                <option value="Food Preparation">Performance</option>
-                                <option value="Beverage Makers">Features</option>
-                                <option value="Cleaning Tools">Quality</option>
-                                <option value="Storage Solutions">Design</option>
-                                <option value="Storage Solutions">Design</option>
-                                <option value="Storage Solutions">Efficiency</option>
+                  
+
+                    <option value="Cooking Appliances">Satisfaction</option>
+                    <option value="Food Preparation">Performance</option>
+                    <option value="Beverage Makers">Features</option>
+                    <option value="Cleaning Tools">Cleaning</option>
+                    <option value="Storage Solutions">Storage Solutions</option>
+                    <option value="Efficiency">Efficiency</option>
                 
           </select>
-
+          </div>
+          <div className="mb-4 text-center">
           <select 
           value={sort}
           onChange={(e) => setSort(e.target.value)}

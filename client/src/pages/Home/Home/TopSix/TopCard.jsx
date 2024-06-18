@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../hooks/useAuth";
 import useRole from "../../../../hooks/useRole";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic";
+import CurrentDeadLine from "../../../../components/CurrentDate/CurrentDeadLine";
+import CurrentDate from "../../../../components/CurrentDate/CurrentDate";
 
 
 const TopCard = ({catCard}) => {
@@ -38,21 +40,68 @@ const TopCard = ({catCard}) => {
     const {Title,Description,deadline,createDate,category,image} = surySngle;
    
     console.log("---------------------",yesVote);
+    const today = new Date();
+    const isExpired=today>new Date(deadline);
+
   return (
-    <div>
-        <div className="card lg:card-side bg-base-100 shadow-xl">
-  <figure><img src={image} alt="Shoes" /></figure>
+    <div className="font-poppins">
+        <div className="card lg:card-side bg-base-100 shadow-xl border">
+ 
   <div className="card-body">
-    <h2 className="card-title">{Title}-{_id}</h2>
-    <p>{Description}</p>
-    <p>{deadline}</p>
-    <p>{createDate}</p>
-    <p>{category}</p>
-    <div className=""><p>Totall Vote:{vote}</p>
-    <p>Yes Vote:{yesVote?.length}</p></div>
+    <h2 className="card-title">{Title}</h2>
+   
+    
+    <div className="flex justify-between">
+      <div className="image w-1/4 h-[50px] my-auto px-auto mr-2">
+          <img src={image} className="rounded-lg"/>
+      </div>
+      <div className="description w-3/4 ml-2">
+          <lable>Description:</lable>
+          <p className="break-all font-light">{Description}</p>
+
+      </div>
+
+    </div>
+
+
+    <p><lable>Category:</lable>{category}</p>
+
+  
+
+    <div className="uppercase vote  border-solid border-1 border-[#c4b7b7] text-center bg-zinc-900 text-yellow-200 rounded-xl">
+
+      
+    <div className="bg-red-400 rounded-tl-lg rounded-tr-lg p-2 font-semibold">
+      Status
+      </div>
+      <div className="flex justify-center p-2 font-light text-[10px]">
+       
+        <p>Start: <CurrentDate date={createDate}></CurrentDate></p>
+        
+        
+        <p className="text-white">deadline: <CurrentDeadLine date={deadline}/></p>
+        <p>vote: {  isExpired?<>end</>:<>continiu</>  }</p>
+      </div>
+
+
+
+
+
+      <div className="bg-red-400  p-2 font-semibold">
+      Vote
+      </div>
+      <div className="flex justify-center p-2 font-light">
+       
+        <p>Yes:{yesVote?.length}</p>
+        <p className="text-white">no:{vote-yesVote?.length}</p>
+        <p>Totall:{vote}</p>
+      </div>
+    </div>
+    
+    
     
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
+      <button className="btn btn-error">Details</button>
     </div>
   </div>
 </div>

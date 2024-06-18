@@ -58,10 +58,10 @@ const Update = () => {
         // 
 
         
-
+      console.log("data check----------------",SurveyItem)
 
         const surveyorRes = await axiosSecure.patch(`/surveyor/${_id}`, SurveyItem);
-        console.log(surveyorRes.data)
+        // console.log(surveyorRes.data)
         if(surveyorRes.data.modifiedCount > 0){
             // show success popup
             // reset();
@@ -102,11 +102,12 @@ const Update = () => {
                             <select defaultValue={category} {...register('category', { required: true })}
                                 className="select select-bordered w-full">
                                 <option disabled value="default">Select a category</option>
-                                <option value="Cooking Appliances">Cooking Appliances</option>
-                                <option value="Food Preparation">Food Preparation</option>
-                                <option value="Beverage Makers">Beverage Makers</option>
-                                <option value="Cleaning Tools">Cleaning Tools</option>
-                                <option value="Storage Solutions">Storage Solutions</option>
+                                <option value="Cooking Appliances">Satisfaction</option>
+                    <option value="Food Preparation">Performance</option>
+                    <option value="Beverage Makers">Features</option>
+                    <option value="Cleaning Tools">Cleaning</option>
+                    <option value="Storage Solutions">Storage Solutions</option>
+                    <option value="Efficiency">Efficiency</option>
                             </select>
                         </div>
                         <div>
@@ -146,7 +147,7 @@ const Update = () => {
                     </div>
 
                     <button className="btn">
-                        Add Survey 
+                        Update Survey 
                     </button>
                 </form>
     </div>

@@ -47,8 +47,10 @@ const Create = () => {
       const formItem = {
             Description: data.Description,
             Title: data.Title,
-            deadline: fdeadline,
-            createDate: Cdeadline,
+            // deadline: fdeadline,
+            // createDate: Cdeadline,
+            deadline: data.deadline,
+            createDate: data.create_date,
             category: data.category,
             status: 1,
             email:user?.email,
@@ -102,10 +104,10 @@ const Create = () => {
                                 <option value="Cooking Appliances">Satisfaction</option>
                                 <option value="Food Preparation">Performance</option>
                                 <option value="Beverage Makers">Features</option>
-                                <option value="Cleaning Tools">Quality</option>
-                                <option value="Storage Solutions">Design</option>
-                                <option value="Storage Solutions">Design</option>
-                                <option value="Storage Solutions">Efficiency</option>
+                                <option value="Cleaning Tools">Cleaning</option>
+                                <option value="Storage Solutions">Storage Solutions</option>
+                                <option value="Efficiency">Efficiency</option>
+                                
                             </select>
                         </div>
                         <div>
