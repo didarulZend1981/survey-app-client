@@ -15,7 +15,7 @@ const Payment = () => {
 <h2 className="h-[100px]"></h2>
   
 
-             <div className="w-[500px] text-center">
+             <div className="rounded-lg mt-[50px] w-[300px] text-center bordder-2 h-[100px] mx-auto my-auto border-2 p-5">
              
                 <Elements stripe={stripePromise}>
                     <CheckoutForm></CheckoutForm>

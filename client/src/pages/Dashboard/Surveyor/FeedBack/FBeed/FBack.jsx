@@ -28,14 +28,19 @@ const axiosPublic = useAxiosPublic();
 
 
   return (
-    <div>
-      <h2> Unpublish</h2>
-      <div>
-      <p>FeedBack:{feedback}</p>
-        <p>email:{email}</p>
-        <p>Title:{Title}</p>
+    <div className="w-[200px] mx-auto border-3 mt-[50px]">
 
-      </div>
+        <div className="card w-96 bg-base-100 shadow-xl border-2">
+          <div className="card-body font-poppins">
+            <h2 className="card-title">Unpublish</h2>
+            <p>Survey Title:{Title}</p>
+            <p>FeedBack:{feedback}</p>
+            <div className="card-actions justify-end">
+            <p>email:{email}</p>
+            </div>
+          </div>
+        </div>
+      
     </div>
   );
 };

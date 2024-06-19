@@ -9,6 +9,7 @@ const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
   const [users, setUsers] = useState([]);
   const [role, setRole] = useState('');
+  
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -26,6 +27,8 @@ const AllUsers = () => {
     fetchUsers();
   }, [role]);
 
+
+  
 
 
 
@@ -57,7 +60,7 @@ const AllUsers = () => {
     .then(res =>{
         console.log(res.data)
         if(res.data.modifiedCount > 0){
-            refetch();
+            
             Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -65,6 +68,8 @@ const AllUsers = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+
+              refetch();
         }
     })
 }
@@ -124,7 +129,7 @@ const AllUsers = () => {
                                     { user.role === 'surveyor' ? 'surveyor' : <button
                                         onClick={() => proUserProm(user)}
                                         className="btn btn-lg bg-orange-500">
-                                       surveyor
+                                       {user.role}
                                     </button>}
                                 </td>
                             </tr>)

@@ -23,7 +23,7 @@ const FeedBack = () => {
                 <h2 className="text-3xl">All Surveys feedBack</h2>
                 <h2 className="text-3xl">Total  : {feedBack.length}</h2>
       </div>
-      <table>
+      <table className='w-[500px] mx-auto'>
       <table className="table table-zebra">
     {/* head */}
     <thead>
@@ -32,7 +32,7 @@ const FeedBack = () => {
         <th>Title</th>
         <th>Email</th>
         <th>Feedback</th>
-        <th>Unpublih</th>
+        <th>View</th>
         
        
       </tr>

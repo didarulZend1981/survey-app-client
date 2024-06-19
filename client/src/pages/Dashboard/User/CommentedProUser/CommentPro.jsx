@@ -31,13 +31,14 @@ const CommentPro = ({comentCard}) => {
     image={image}
     totalVotes={totalVotes}
     yesVotes={yesVotes}
-    inapp={comments}
+    inapp=""
+    comment={comments}
    
 
->
+/>
 
 
-</CommonCard>
+
     </div>
   );
 };

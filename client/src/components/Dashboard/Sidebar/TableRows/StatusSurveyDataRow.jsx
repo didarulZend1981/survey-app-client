@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useState } from "react";
 import FeedbackModal from "../../../FeedbackModal/FeedbackModal";
-
+import { MdPublishedWithChanges } from "react-icons/md";
+import { MdOutlineUnpublished } from "react-icons/md";
 
 const StatusSurveyDataRow = ({survey,refetch,serialNumber}) => {
   console.log(survey);
@@ -82,7 +83,15 @@ const StatusSurveyDataRow = ({survey,refetch,serialNumber}) => {
 
 
 
-              <button className="btn btn-primary" onClick={() => openModal('')}>Unpublish Survey-{ status}</button>
+              <button className="btn btn-warning" onClick={() => openModal('')}>
+              {
+                status==1?<><MdPublishedWithChanges /> publish</>:<><MdOutlineUnpublished />unpublish</>
+
+              }
+
+
+
+              </button>
       {isModalOpen && <FeedbackModal surveyId={_id} closeModal={closeModal} />}
 
 

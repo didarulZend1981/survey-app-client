@@ -14,19 +14,43 @@ const SingleSurvey = () => {
   
 const axiosPublic = useAxiosPublic();
   const { refetch, data: surySngle = [] } = useQuery({
-    queryKey: ['vote/collect/${id}'],
+    queryKey: ['vote/${id}'],
     queryFn: async() => {
-            const { data } = await axiosPublic.get(`/vote/collect/${id}`);
+            const { data } = await axiosPublic.get(`/vote/${id}`);
             return data;
         }
         
     })
 
+
+
+    // const { refetch, data: surySngle = [] } = useQuery({
+    //   queryKey: ['vote/collect/${id}'],
+    //   queryFn: async() => {
+    //           const { data } = await axiosPublic.get(`/vote/collect/${id}`);
+    //           return data;
+    //       }
+          
+    //   })
+
  console.log("---------------------------",surySngle[0]);
   console.log(id);
   return (
     <div>
-      <SectionTitle subHeading="" heading={surySngle.length}></SectionTitle>
+
+      {surySngle.length==0?
+      <>
+      <div>
+        <h2> vote not custing yet</h2>
+      </div>
+      
+      
+      </>:
+      
+          
+      
+      <>
+      <SectionTitle subHeading={surySngle[0]?.Title} heading={surySngle.length}></SectionTitle>
       <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
@@ -37,6 +61,8 @@ const axiosPublic = useAxiosPublic();
         <th>User Email</th>
         <th>User Name</th>
         <th>Vote</th>
+        <th>Reported</th>
+        <th>Commented</th>
       </tr>
     </thead>
     <tbody>
@@ -55,6 +81,11 @@ const axiosPublic = useAxiosPublic();
     </tbody>
   </table>
 </div>
+      
+      
+      
+      </>}
+      
     </div>
   );
 };

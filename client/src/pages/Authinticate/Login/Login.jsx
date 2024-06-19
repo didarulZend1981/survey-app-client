@@ -9,6 +9,7 @@ import { CiLogin } from "react-icons/ci";
 import SocialLogin from '../SocialLogin/SocialLogin';
 import useAuth from '../../../hooks/useAuth';
 
+
 const Login = () => {
   
   const [disabled, setDisabled] = useState(true);
@@ -18,9 +19,9 @@ const Login = () => {
 
   const from = location.state?.from?.pathname || "/";
     console.log(from);
-  useEffect(() => {
-      loadCaptchaEnginge(6);
-  }, [])
+//   useEffect(() => {
+//       loadCaptchaEnginge(6);
+//   }, [])
 
   const handleLogin = event => {
       event.preventDefault();
@@ -44,17 +45,33 @@ const Login = () => {
               });
               navigate(from, { replace: true });
           })
+          .catch(error => {
+            // toast.error('your email and password should match with the registered email and password If it doesnt match')
+
+            Swal.fire({
+                title: 'your email and password should match with the registered email and password If it doesnt match.',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            });
+                
+        })
+        //   console.log()
+
   }
 
-  const handleValidateCaptcha = (e) => {
-      const user_captcha_value = e.target.value;
-      if (validateCaptcha(user_captcha_value)) {
-          setDisabled(false);
-      }
-      else {
-          setDisabled(true)
-      }
-  }
+//   const handleValidateCaptcha = (e) => {
+//       const user_captcha_value = e.target.value;
+//       if (validateCaptcha(user_captcha_value)) {
+//           setDisabled(false);
+//       }
+//       else {
+//           setDisabled(true)
+//       }
+//   }
 
      
 
@@ -81,18 +98,18 @@ const Login = () => {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
-                            <div className="form-control">
+                            {/* <div className="form-control">
                                 <label className="label">
                                     <LoadCanvasTemplate />
                                 </label>
                                 <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="type the captcha above" className="input input-bordered" />
 
-                            </div>
+                            </div> */}
                             <div className="form-control mt-6">
 
                                 <input 
                                 
-                                disabled={disabled} 
+                                // disabled={disabled} 
                                 className="btn btn-primary" 
                                 type="submit" 
                                 value="Login" 
@@ -105,9 +122,14 @@ const Login = () => {
                                 
                             
                             </div>
+                            <p className="text-center"><small className="w-[200px] mx-auto border-2">New Here? <Link to="/signup"><span className="text-[red]">Create an account</span></Link></small></p>
                         </form>
-                        <div className='w-96 mx-auto'><small>New Here? <Link to="/signup">Create an account</Link> </small></div>
-                         
+                       
+
+
+                        
+
+
                          <div><SocialLogin></SocialLogin></div>
                          
                           

@@ -68,7 +68,7 @@ const SurveysPageCard = ({PageCard}) => {
       <div className="flex justify-center p-2 font-light">
        
         <p>Yes:{yesVotes}</p>
-        <p className="text-white">no:{noVotes}</p>
+        <p className="text-white">no:{totalVotes-yesVotes}</p>
         <p>Totall:{totalVotes}</p>
       </div>
     </div>

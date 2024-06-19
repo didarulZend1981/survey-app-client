@@ -36,6 +36,7 @@ const ReportCard = ({reportCard}) => {
     totalVotes={totalVotes}
     yesVotes={yesVotes}
     inapp={inapp}
+    comment=""
 
 >
 

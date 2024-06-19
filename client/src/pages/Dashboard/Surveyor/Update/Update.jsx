@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -14,7 +14,7 @@ const Update = () => {
   const {user} =useAuth();
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
-
+  const navigate = useNavigate()
 
 
   const onSubmit = async (data) => {
@@ -72,6 +72,7 @@ const Update = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+              navigate("/dashboard/surveyor/allupdate");
         }
     }
     console.log( 'with image url', res.data);
@@ -79,7 +80,7 @@ const Update = () => {
 
   const { register, handleSubmit } = useForm();
   return (
-    <div>
+    <div className=" border-2 p-10 mx-auto rounded-lg">
         <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control w-full my-6">
                         <label className="label">
@@ -93,7 +94,7 @@ const Update = () => {
                             required
                             className="input input-bordered w-full" />
                     </div>
-                    <div className="flex gap-6">
+                    <div className="flex justify-center gap-6">
                         {/* category */}
                         <div className="form-control w-full my-6">
                             <label className="label">
@@ -110,10 +111,18 @@ const Update = () => {
                     <option value="Efficiency">Efficiency</option>
                             </select>
                         </div>
-                        <div>
+                       
+                        
+
+                        
+
+                    </div>
+
+                    <div className="flex justify-between gap-6">
+                    <div>
                         <label>Create:</label>
                         <input 
-                        
+                        className="btn outline-0"
                         defaultValue={createDate}
                         
                         type="date" {...register('create_date')} />
@@ -121,12 +130,10 @@ const Update = () => {
                         <div>
                         <label>Deadline:</label>
                         <input 
+                        className="btn outline-0"
                         defaultValue={deadline}
                         type="date" {...register('deadline')} />
                         </div>
-
-                        
-
                     </div>
                     {/* recipe details */}
                     <div className="form-control">
@@ -142,7 +149,7 @@ const Update = () => {
 
                     <div className="form-control w-full my-6">
                         <input 
-                        
+                        defaultValue={image}
                         {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
                     </div>
 

@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
+import { MdOutlineUpdate } from "react-icons/md";
 
-import { FaStreetView } from "react-icons/fa";
-const SurveyDataRow = ({survey,refetch,serialNumber}) => {
- 
+const AllUpdateRow = ({survey,refetch,serialNumber}) => {
   const {_id,Title,deadline,image,totalVotes,yesVotes} =survey
      const parts = deadline.split('-');
   // Rearrange the parts in the desired format 'dd/mm/yyyy'
@@ -11,9 +10,9 @@ const SurveyDataRow = ({survey,refetch,serialNumber}) => {
   // const Cparts = data.create_date.split('-');
   // // Rearrange the parts in the desired format 'dd/mm/yyyy'
   // const Cdeadline = `${Cparts[2]}-${Cparts[1]}-${Cparts[0]}`;
+
   return (
-    
-       <tr>
+      <tr>
               <td>{serialNumber}</td>
               <td>{Title}</td>
               <td>{fdeadline}</td>
@@ -24,23 +23,24 @@ const SurveyDataRow = ({survey,refetch,serialNumber}) => {
               <td> 
                 
                  
-                {/* <Link to={`/dashboard/surveyor/update/${_id}`}>
+                <Link to={`/dashboard/surveyor/update/${_id}`}>
                                             <button
                                                 className="btn btn-ghost btn-lg bg-orange-500">
-                                                update
+                                                <MdOutlineUpdate />
+                                            </button>
+                                        </Link>
+                
+                
+                {/* || <Link to={`/dashboard/surveyor/surveys/${_id}`}>
+                                            <button
+                                                className="btn btn-ghost btn-lg bg-orange-500">
+                                                View
                                             </button>
                                         </Link> */}
-                
-                
-                <Link to={`/dashboard/surveyor/surveys/${_id}`}>
-                                            <button
-                                                className="btn btn-ghost btn-sm bg-orange-500">
-                                               <FaStreetView />
-                                            </button>
-                                        </Link></td>
+                                        
+                                        </td>
        </tr>
-    
   );
 };
 
-export default SurveyDataRow;
+export default AllUpdateRow;

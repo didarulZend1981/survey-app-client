@@ -96,7 +96,7 @@ const CheckoutForm = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: "Thank you",
+                    title: "Thank you pro user member",
                     showConfirmButton: false,
                     timer: 1500
                 });

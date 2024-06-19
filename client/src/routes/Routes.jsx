@@ -25,6 +25,8 @@ import FeedBack from "../pages/Dashboard/Surveyor/FeedBack/FeedBack";
 import FBack from "../pages/Dashboard/Surveyor/FeedBack/FBeed/FBack";
 import MembarShip from "../pages/MemberShip/MembarShip";
 import ProPayment from "../pages/Dashboard/User/ProPayment/ProPayment";
+import AllUpdate from "../pages/Dashboard/Surveyor/AllUpdate/AllUpdate";
+import AllResponses from "../pages/Dashboard/Admin/AllResponses/AllResponses";
 
 
 
@@ -99,6 +101,14 @@ import ProPayment from "../pages/Dashboard/User/ProPayment/ProPayment";
           path: 'admin/surveys',
           element: <AllSurveys></AllSurveys>
         },
+
+        ,
+
+        {
+          path: 'admin/responses',
+          element: <AllResponses></AllResponses>
+        },
+
         // survey routes
         {
           path: 'surveyAdd',
@@ -107,6 +117,10 @@ import ProPayment from "../pages/Dashboard/User/ProPayment/ProPayment";
         {
           path: 'surveyor/surveys',
           element: <Surveys></Surveys>
+        },
+        {
+          path: 'surveyor/allupdate',
+          element: <AllUpdate></AllUpdate>
         },
         {
           path: 'surveyor/update/:id',
@@ -118,7 +132,7 @@ import ProPayment from "../pages/Dashboard/User/ProPayment/ProPayment";
           element: <SingleSurvey></SingleSurvey>,
           loader: ({params}) => fetch(`https://survey-app-ashy.vercel.app/surveyor/${params.id}`)
         }
-
+        
         ,
         {
           path: 'surveyor/feedback/:id',

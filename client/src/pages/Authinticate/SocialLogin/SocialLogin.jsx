@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
-
+import { FcGoogle } from "react-icons/fc";
 
 const SocialLogin = () => {
 
@@ -59,7 +59,7 @@ const SocialLogin = () => {
 
 
 
-       <button onClick={handleGoogleSignIn} className="btn btn-outline btn-primary w-full"> Google</button>
+       <button onClick={handleGoogleSignIn} className="btn outline-white  w-full  hover:bg-sky-200"> <FcGoogle /> Google</button>
 
 
            

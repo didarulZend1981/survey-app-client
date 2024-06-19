@@ -62,6 +62,7 @@ console.log("login -------------------",surveys)
         <th>Yes</th>
         <th>No</th>
         <th>Total</th>
+        <th>view</th>
        
       </tr>
     </thead>

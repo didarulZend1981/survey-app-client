@@ -10,6 +10,7 @@ import { MdAppRegistration } from "react-icons/md";
 import { imageUpload } from "../../../api/utils";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import toast from "react-hot-toast";
 
 
 const SignUp = () => {
@@ -58,7 +59,8 @@ const SignUp = () => {
 
 
                     })
-                    .catch(error => console.log(error))
+                    // .catch(error => console.log(error))
+                    .catch(error => toast.error(err.message))
             })
   };
  
@@ -115,7 +117,7 @@ const SignUp = () => {
 
 return (
     <div className="pt-18">
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-base-200 font-poppins">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                   
                     <div className="card w-96 bg-base-100 shadow-2xl">
@@ -157,11 +159,14 @@ return (
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Sign Up" />
+                                <input className="btn bg-[#1da1f2] text-white hover:bg-[#3488bd]" type="submit" value="Sign Up" />
                             </div>
+                            
+                            <p className="text-center"><small className="w-[200px] mx-auto border-2">Already have an account <Link to="/login"><span className="text-[red]">Login</span></Link></small></p>
+
                         </form>
                                 
-                        <p className="px-6"><small>Already have an account <Link to="/login">Login</Link></small></p>
+                        
                        
                       
                         <SocialLogin></SocialLogin>

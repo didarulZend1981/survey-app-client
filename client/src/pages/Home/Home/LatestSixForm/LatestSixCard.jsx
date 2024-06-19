@@ -9,7 +9,7 @@ const LatestSixCard = ({catCard}) => {
   console.log("latestSix Card----------",catCard);
   const today = new Date();
     const isExpired=today>new Date(deadline);
-  
+    // const isExpired=today>new Date(deadline)&& today!== new Date(deadline);
   return (
     
     <div className="font-poppins">
@@ -61,7 +61,7 @@ const LatestSixCard = ({catCard}) => {
       <div className="flex justify-center p-2 font-light">
        
         <p>Yes:{yesVotes}</p>
-        <p className="text-white">no:{noVotes}</p>
+        <p className="text-white">no:{totalVotes-yesVotes}</p>
         <p>Totall:{totalVotes}</p>
       </div>
     </div>

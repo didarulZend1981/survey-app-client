@@ -42,6 +42,7 @@ const FeedbackModal = ({ surveyId,closeModal  }) => {
             icon: 'success',
             confirmButtonText: 'ADD'
         })
+        
         closeModal()
       }
     })
@@ -64,7 +65,9 @@ const FeedbackModal = ({ surveyId,closeModal  }) => {
   return (
     <div className="modal modal-open">
       <div className="modal-box">
-        <h2 className="font-bold text-lg">Provide Feedback--{surveyId}</h2>
+        <h2 className="font-bold text-lg">Provide Feedback--{Title}</h2>
+
+        {/* <h2 className="font-bold text-lg">Provide Feedback--{surveyId}</h2> */}
         <textarea
           className="textarea textarea-bordered w-full mt-4"
           value={feedback}

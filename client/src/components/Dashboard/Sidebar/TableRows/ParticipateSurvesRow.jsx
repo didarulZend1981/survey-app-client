@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic";
+import { Link } from "react-router-dom";
+import { FaStreetView } from "react-icons/fa";
 
 
 const ParticipateSurvesRow = ({partipale,serialNumber}) => {
@@ -32,7 +34,13 @@ const ParticipateSurvesRow = ({partipale,serialNumber}) => {
               <td>{yesVotes}</td>
               <td>{totalVotes-yesVotes}</td>
               <td>{totalVotes}</td>
-
+              <Link to={`/dashboard/surveyor/surveys/${SurveyID}`}>
+              
+                                            <button 
+                                                className="mt-2 btn btn-ghost btn-sm bg-orange-500">
+                                               <FaStreetView />
+                                            </button>
+                                        </Link>
               </tr>
     
   );

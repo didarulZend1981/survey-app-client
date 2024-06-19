@@ -6,6 +6,7 @@ import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { imageUpload } from '../../../../api/utils'
 import useAuth from "../../../../hooks/useAuth";
+
 const image_hosting_key = import.meta.env.VITE_IMGBB_API_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
@@ -16,7 +17,7 @@ const Create = () => {
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
   const onSubmit = async (data) => {
-
+ 
   
 
 
@@ -73,13 +74,15 @@ const Create = () => {
               showConfirmButton: false,
               timer: 1500
             });
+           
+            
       }
   }
   console.log( 'with image url', res.data);
 };
 
   return (
-    <div>
+    <div className="border-2 p-10 mx-auto rounded-lg">
       <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control w-full my-6">
                         <label className="label">
@@ -110,29 +113,23 @@ const Create = () => {
                                 
                             </select>
                         </div>
+                       
+                        
+
+                        
+
+                    </div>
+                    <div className="flex justify-between gap-6">
+
                         <div>
                         <label>Create:</label>
-                        <input type="date" {...register('create_date')} />
+                        <input className="btn outline-0" type="date" {...register('create_date')} />
                         </div>
                         <div>
                         <label>Deadline:</label>
-                        <input type="date" {...register('deadline')} />
+                        <input className="btn outline-0" type="date" {...register('deadline')} />
                         </div>
-
-                        {/* price */}
-                        <div className="form-control w-full my-6">
-                           
-                        <div>
-        <label>vote:</label>
-        
-        
-      </div>
-                        
-                        
-                        
                         </div>
-
-                    </div>
                     {/* recipe details */}
                     <div className="form-control">
                         <label className="label">
