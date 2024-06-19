@@ -55,20 +55,7 @@ console.log(paymentPro);
               }
 
 
-{
-                    
-                  
-                    paymentPro.map((payment,index) => (
-                  
-                      <PaymentHistoryRow
-                        key={payment?._id}// Unique key for React's reconciliation
-                        serialNumber={index + 1} // Serial number starting from 1
-                        pay={payment}
-                        refetch={refetch}
-                      />
-                    ))
-                    
-                    }
+
 
           </tbody>
       </table>
