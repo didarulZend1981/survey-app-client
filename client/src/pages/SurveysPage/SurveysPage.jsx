@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import SurveysPageCard from "./SurveysPageCard";
+import { Helmet } from "react-helmet-async";
 
 const SurveysPage = () => {
   const [surveys, setSurveys] = useState([]);
@@ -34,7 +35,10 @@ const SurveysPage = () => {
 
   return (
     <div>
-          
+          <Helmet>
+        <title>Survey App || Surveys Page</title>
+        
+      </Helmet>
           <div className="pt-24">
           <h2 className=" text-center uppercase">SurveysPage</h2>
           </div>

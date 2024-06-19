@@ -7,6 +7,7 @@ import useRole from "../../../hooks/useRole";
 import CurrentDate from "../../../components/CurrentDate/CurrentDate";
 import Swal from "sweetalert2";
 import CurrentDeadLine from "../../../components/CurrentDate/CurrentDeadLine";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -143,6 +144,10 @@ const SurveysDetails = () => {
     console.log("voting count---",voteSngle)
   return (
     <div className="font-poppins">
+      <Helmet>
+        <title>Survey App || Surveys Details</title>
+        
+      </Helmet>
       <h2 className="py-20 text-center"></h2>
      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 mb-10">
@@ -153,7 +158,7 @@ const SurveysDetails = () => {
 
     <div className="card card-compact  bg-base-100 shadow-xl">
       
-    <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+    <form onSubmit={handleSubmit(onSubmit)} className="card-body border-2 rounded-lg">
         <h2 className="card-title">{Title}</h2>
         <p>{   Description  }</p>
        
@@ -275,8 +280,8 @@ const SurveysDetails = () => {
     </div>
 
 
-    <div className="card card-compact  bg-base-100 shadow-xl  border-1">
-        <h2 className="text-center text-[20px]">Title:{Title}</h2>
+    <div className="card card-compact  bg-base-100 shadow-xl  rounded-lg  border-2">
+        <h2 className="text-center text-[20px] mt-3">Title:{Title}</h2>
         <p className="ml-5 mr-5 warp text-[15px] mt-2">Description:{Description}</p>
         
       <div className="flex justify-center gap-3 uppercase text-[12px] mt-5 mb-5">

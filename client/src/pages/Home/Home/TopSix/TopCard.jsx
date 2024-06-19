@@ -4,6 +4,7 @@ import useRole from "../../../../hooks/useRole";
 import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import CurrentDeadLine from "../../../../components/CurrentDate/CurrentDeadLine";
 import CurrentDate from "../../../../components/CurrentDate/CurrentDate";
+import { Link } from "react-router-dom";
 
 
 const TopCard = ({catCard}) => {
@@ -101,7 +102,7 @@ const TopCard = ({catCard}) => {
     
     
     <div className="card-actions justify-end">
-      <button className="btn btn-error">Details</button>
+    <button className="btn btn-error"><Link to={`../surveydetails/${_id}`}>Details</Link></button>
     </div>
   </div>
 </div>

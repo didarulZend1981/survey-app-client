@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MdOutlineUpdate } from "react-icons/md";
+
 
 const AllUpdateRow = ({survey,refetch,serialNumber}) => {
   const {_id,Title,deadline,image,totalVotes,yesVotes} =survey
@@ -26,7 +26,7 @@ const AllUpdateRow = ({survey,refetch,serialNumber}) => {
                 <Link to={`/dashboard/surveyor/update/${_id}`}>
                                             <button
                                                 className="btn btn-ghost btn-lg bg-orange-500">
-                                                <MdOutlineUpdate />
+                                               update
                                             </button>
                                         </Link>
                 

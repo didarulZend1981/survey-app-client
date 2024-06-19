@@ -2,7 +2,7 @@
 
 const InsightsFeedBack = () => {
   return (
-    <div className="border my-20">
+    <div className="border my-20 font-poppins">
       <h1 className="text-center mt-5 font-extrabold">Survey App User Feedback and Insights</h1>
       <div className="card lg:card-side bg-base-100 shadow-xl">
       <div className="card-body">

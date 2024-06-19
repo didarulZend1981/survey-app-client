@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { CiLogin } from "react-icons/ci";
 import SocialLogin from '../SocialLogin/SocialLogin';
 import useAuth from '../../../hooks/useAuth';
+import { Helmet } from 'react-helmet-async';
 
 
 const Login = () => {
@@ -76,8 +77,13 @@ const Login = () => {
      
 
       return (
+        
           
-              <div className="hero min-h-screen bg-base-200">
+              <div className="hero min-h-screen bg-base-200 font-poppins">
+                <Helmet>
+        <title>Survey App || Login</title>
+        
+      </Helmet>
                   <div className="hero-content flex-col md:flex-row-reverse">
                       
                       <div className="card w-96 max-w-sm shadow-2xl bg-base-100">
@@ -110,7 +116,8 @@ const Login = () => {
                                 <input 
                                 
                                 // disabled={disabled} 
-                                className="btn btn-primary" 
+                                className="btn bg-[#1da1f2] text-white hover:bg-[#3488bd]" 
+
                                 type="submit" 
                                 value="Login" 
                                 
@@ -122,7 +129,7 @@ const Login = () => {
                                 
                             
                             </div>
-                            <p className="text-center"><small className="w-[200px] mx-auto border-2">New Here? <Link to="/signup"><span className="text-[red]">Create an account</span></Link></small></p>
+                            <p className="text-center"><small className="w-[200px] mx-auto ">New Here? <Link to="/signup"><span className="text-[red]">Create an account</span></Link></small></p>
                         </form>
                        
 

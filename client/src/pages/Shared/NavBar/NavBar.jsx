@@ -23,7 +23,7 @@ const NavBar = () => {
             user && role && <li><Link to="/dashboard/adminHome">ADMIN</Link></li>
           }
           <li><Link to="/membarShip">PRICE Page</Link></li>
-          <li><Link to="/dashboard/payment">PRO-USER</Link></li>
+          {/* <li><Link to="/dashboard/payment">PRO-USER</Link></li> */}
           <li><Link to="/login">Login</Link></li>
           <li><Link to="/signup">SignUp</Link></li>
 

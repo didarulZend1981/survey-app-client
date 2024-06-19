@@ -2,7 +2,7 @@
 
 const Faq = () => {
   return (
-    <div className="border my-20">
+    <div className="border my-20 font-poppins">
       <h2 className="text-center mt-5 font-extrabold"> FAQ</h2>
         <div className="card lg:card-side bg-base-100 shadow-xl">
           {/* <figure className="w-200%"><img src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg" alt="Album" className="w-3/4"/></figure> */}

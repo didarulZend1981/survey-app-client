@@ -4,6 +4,7 @@ import Payment from "../Dashboard/Payment/Payment";
 import Swal from "sweetalert2";
 import { CiBadgeDollar } from "react-icons/ci";
 import { FaArrowRight } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const MembarShip = () => {
   const {user} =useAuth();
@@ -22,6 +23,10 @@ const MembarShip = () => {
   }
   return (
     <div className="font-poppins uppercase">
+      <Helmet>
+        <title>Survey App || MemBar Ship</title>
+        
+      </Helmet>
       <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col lg:flex-row-reverse">
     

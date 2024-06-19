@@ -149,7 +149,7 @@ const Update = () => {
 
                     <div className="form-control w-full my-6">
                         <input 
-                        defaultValue={image}
+                       
                         {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
                     </div>
 

@@ -27,6 +27,7 @@ import MembarShip from "../pages/MemberShip/MembarShip";
 import ProPayment from "../pages/Dashboard/User/ProPayment/ProPayment";
 import AllUpdate from "../pages/Dashboard/Surveyor/AllUpdate/AllUpdate";
 import AllResponses from "../pages/Dashboard/Admin/AllResponses/AllResponses";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 
 
@@ -35,6 +36,7 @@ import AllResponses from "../pages/Dashboard/Admin/AllResponses/AllResponses";
     {
       path: "/",
       element: <Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
       children:[
           {
             path:'/',

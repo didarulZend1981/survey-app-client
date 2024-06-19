@@ -11,6 +11,7 @@ import { imageUpload } from "../../../api/utils";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 
 const SignUp = () => {
@@ -117,6 +118,10 @@ const SignUp = () => {
 
 return (
     <div className="pt-18">
+        <Helmet>
+        <title>Survey App || SignUp</title>
+        
+      </Helmet>
       <div className="hero min-h-screen bg-base-200 font-poppins">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                   
@@ -162,7 +167,7 @@ return (
                                 <input className="btn bg-[#1da1f2] text-white hover:bg-[#3488bd]" type="submit" value="Sign Up" />
                             </div>
                             
-                            <p className="text-center"><small className="w-[200px] mx-auto border-2">Already have an account <Link to="/login"><span className="text-[red]">Login</span></Link></small></p>
+                            <p className="text-center"><small className="w-[200px] mx-auto">Already have an account <Link to="/login"><span className="text-[red]">Login</span></Link></small></p>
 
                         </form>
                                 
