@@ -30,6 +30,10 @@
 
 #####-Advantages of No-SQL Database:
 ## MongoDB's document-oriented database provides flexibility and scalability in data modeling.
+#####-admin & user password
+## All user name & common pass:prouser@U123
+
+## user01@gmail.com,user02@gmail.com,user03@gmail.com,user04@gmail.com,user05@gmail.com, user06@gmail.com,user07@gmail.com, survey01@gmail.com, survey02@gmail.com,admin@gmail.com
 
 #####-Live link
 Front-end Live Site Link:  https://survey-app-92e6f.web.app ,
