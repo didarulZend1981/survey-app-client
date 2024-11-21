@@ -20,6 +20,69 @@ const SurveysPageCard = ({PageCard}) => {
 
           <div>
           <div className="font-poppins">
+
+
+         <div className="card bg-base-100 shadow-md border">
+              <figure>
+                    <img src={image} alt={Title} className="w-full h-48 object-cover" />
+              </figure>
+              <div className="card-body">
+
+                  <h2 className="card-title text-base font-medium ">
+                      <span className="uppercase text-[#23BE0A]">Name</span>:
+                      <span>{Title}</span>
+                  </h2>
+
+                   <div className="flex">
+                      <p className="w-[120px]"><span className="text-[#23BE0A]">Category</span>: {category}</p>
+                  </div>
+
+                  <p className="text-base text-justify"><span className="text-[#23BE0A]">Description</span> : 
+                     {Description}
+                  </p>
+
+                  <div className="flex justify-between">
+                      <div><span className="rounded-tl-lg rounded-tr-lg  font-semibold uppercase">Status</span>: End of vote</div>
+                      <div><span className="rounded-tl-lg rounded-tr-lg  font-semibold uppercase">Totall Vote</span>:{totalVotes}</div>
+                  </div>
+
+
+                  <div class="mt-5">
+                        <button type="button" class="w-full shadow-xl py-2.5 px-4 text-sm tracking-wider font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+                          <Link to={`../surveydetails/${_id}`}>Details</Link>
+                        </button>
+                  </div>
+
+              </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/*
+
         <div className="card lg:card-side bg-base-100 shadow-xl border">
  
   <div className="card-body">
@@ -79,7 +142,39 @@ const SurveysPageCard = ({PageCard}) => {
       <button className="btn btn-error"><Link to={`../surveydetails/${_id}`}>Details</Link></button>
     </div>
   </div>
+
+
+
+
 </div>
+
+
+
+*/}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
 

@@ -1,0 +1,5 @@
+git fetch origin main
+git pull origin main
+git add .
+git commit -m "Resolve merge conflict"
+git push origin main

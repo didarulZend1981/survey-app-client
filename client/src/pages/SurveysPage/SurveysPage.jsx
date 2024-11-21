@@ -34,15 +34,60 @@ const SurveysPage = () => {
 
 
   return (
-    <div>
+    <div className="px-4 font-poppins">
           <Helmet>
         <title>Survey App || Surveys Page</title>
         
       </Helmet>
-          <div className="pt-24">
-          <h2 className=" text-center uppercase">SurveysPage</h2>
+          <div className="hero h-[300px] text-center bg-base-200 rounded-md uppercase">
+          <div className="mt-14">
+            <h2 className="text-gray-800 text-3xl font-bold mb-1 uppercase">All Surveys</h2>
+          
+             <p className="text-sm text-gray-500">See Your all serveys record show and check</p>
+   
+
           </div>
-          <div className="mt-4 mb-2 text-center">
+          
+          </div>
+
+
+
+<div className="flex flex-col md:flex-row gap-4 md:gap-6 justify-between items-center  py-10">
+  <div className="w-full md:w-auto">
+    <select 
+      value={category}
+      onChange={(e) => setCategory(e.target.value)}
+      className="select w-full md:w-60 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-700"
+    >
+      <option value="none" selected>All</option>
+      <option value="Cooking Appliances">Satisfaction</option>
+      <option value="Food Preparation">Performance</option>
+      <option value="Beverage Makers">Features</option>
+      <option value="Cleaning Tools">Cleaning</option>
+      <option value="Storage Solutions">Storage Solutions</option>
+      <option value="Efficiency">Efficiency</option>
+    </select>
+  </div>
+  <div className="w-full md:w-auto">
+    <select 
+      value={sort}
+      onChange={(e) => setSort(e.target.value)}
+      className="select w-full md:w-60 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-700"
+    >
+      <option disabled selected value="">None</option>
+      <option value="asc">Ascending</option>
+      <option value="desc">Descending</option>
+    </select>
+  </div>
+</div>
+
+
+
+
+         {/* <div className="flex justify-between border-2">
+
+
+              <div className="">
           <select 
           value={category}
           onChange={(e) => setCategory(e.target.value)}
@@ -60,7 +105,7 @@ const SurveysPage = () => {
                 
           </select>
           </div>
-          <div className="mb-4 text-center">
+          <div className="">
           <select 
           value={sort}
           onChange={(e) => setSort(e.target.value)}
@@ -72,8 +117,11 @@ const SurveysPage = () => {
                 
           </select>
           </div>
+            
+          </div>*/}
+          
          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
         
         
           
