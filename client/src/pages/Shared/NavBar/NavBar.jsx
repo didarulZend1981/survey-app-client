@@ -96,7 +96,7 @@ const NavBar = () => {
             {navItems}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Survey App</a>
+        <a className="btn btn-ghost text-xl text-blue-900 font-bold">Survey Nest</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItems}</ul>

@@ -31,7 +31,7 @@ const Footer = () => {
           
         </ul>
 
-        <p className="text-base">© Survey App. All rights reserved.</p>
+        <p className="text-base">© Survey Nest. All rights reserved.</p>
       </div>
     </footer>
 
