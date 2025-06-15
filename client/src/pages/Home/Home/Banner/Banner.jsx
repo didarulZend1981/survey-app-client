@@ -13,7 +13,7 @@ const Banner = () => {
           to="/surveysPages"
          
         >
-          Get Survey
+          Get Survey-02
         </NavLink></button>
     </div>
   </div>
